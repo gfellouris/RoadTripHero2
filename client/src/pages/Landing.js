@@ -3,6 +3,7 @@ import SignUp from "../components/SignUp";
 import GlobalContext from '../context'
 
 class Landing extends Component {
+
 static contextType = GlobalContext 
   state = {};
 
