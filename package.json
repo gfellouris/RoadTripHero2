@@ -1,0 +1,31 @@
+{
+  "name": "RoadTripHero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gfellouris/RoadTripHero.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gfellouris/RoadTripHero/issues"
+  },
+  "homepage": "https://github.com/gfellouris/RoadTripHero#readme",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "firebase": "^6.5.0",
+    "fs": "0.0.1-security",
+    "mongodb": "^3.3.2",
+    "mongoose": "^5.6.11",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.7.0",
+    "sequelize": "^5.17.2"
+  }
+}
