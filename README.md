@@ -16,6 +16,7 @@ SAFE
 - [Prezi]()
 - [Database Design](https://drive.google.com/file/d/1Ke5oiUFzJ3z-ZU7V564kSGzOxlG9s2Sc/view?usp=sharing)
 - [Demo steps - google docs]()
+![Mockup-Sketch](./readme-files/import_process.jpg)
 
 ## Motivation - **The Why**
 Provide save places for family and large groups to stop for gas, food, restrooms, or staying overnight.
