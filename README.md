@@ -11,7 +11,7 @@ SAFE
 
 ## Links
 - [GitHub](https://github.com/gfellouris/RoadTripHero)
-- [Heroku](https://still-depths-21016.herokuapp.com)
+- [Heroku](https://desolate-spire-22968.herokuapp.com/)
 - [Trello](https://trello.com/b/Gcc2cBR2/roadtriphero)
 - [Prezi]()
 - [Database Design](https://drive.google.com/file/d/1Ke5oiUFzJ3z-ZU7V564kSGzOxlG9s2Sc/view?usp=sharing)
