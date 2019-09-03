@@ -4,8 +4,9 @@
     background-attachment: fixed;
 } */
 .videoTag {
-    height: 100%;
+    height: auto;
     width: 100%;
+    /* z-index: 0; */
     position: fixed;
     float: left; 
     top: 0;
