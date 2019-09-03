@@ -2,4 +2,9 @@ body {
     background-image: url(https://res.cloudinary.com/delacue/image/upload/c_scale,w_1497/v1567529037/RTHbackgroundLarge_wofnlp.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+button {
+    margin-right: 20px;
 }

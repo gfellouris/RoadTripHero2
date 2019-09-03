@@ -1,26 +1,26 @@
 import React, { Component } from "react";
 import SignUp from "../components/SignUp";
 import GlobalContext from '../context';
-import Buttons from '../components/Buttons/Buttons'
+import {Container, Row, Col } from 'reactstrap';
+import './landing.css';
 
 class Landing extends Component {
 
 static contextType = GlobalContext 
-  state = {btnStyle: "success", btnName:""};
+  state = {};
 
   render() {
     return (
-      <div>
+      <Container>
+        <Row>
+        <Col>
         <h1>oad Trip Hero</h1>
-        <Buttons
-        btnStyle={this.state.btnStyle}
-        btnName="Sign in using Google"/>
-         <Buttons
-        btnStyle={this.state.btnStyle}
-        btnName="Sign Up"/>
+        
         <h1>{this.context.email}</h1>
-        <SignUp />
-      </div>
+        <SignUp/>
+        </Col>
+        </Row>
+        </Container>
     );
   }
 }
