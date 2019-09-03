@@ -11,16 +11,19 @@ static contextType = GlobalContext
 
   render() {
     return (
-      <Container>
-        <Row>
-        <Col>
-        <h1>oad Trip Hero</h1>
+    
+     <>
+        <video id="background-video" className="videoTag" loop autoPlay>
+                <source src="https://res.cloudinary.com/delacue/video/upload/v1567551824/RTvideoLapse_p06h1g.mp4" type="video/mp4" />
+               
+                
+            </video>
+       
         
         <h1>{this.context.email}</h1>
         <SignUp/>
-        </Col>
-        </Row>
-        </Container>
+        
+       </>
     );
   }
 }
