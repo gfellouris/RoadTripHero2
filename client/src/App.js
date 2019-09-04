@@ -3,6 +3,7 @@ import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import Global from "./context/Global";
 import Landing from "./pages/Landing";
 import Planner from "./pages/Planner";
+import Results from "./pages/Results.js"
 import "./App.css";
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/planner" component={Planner} />
-            <Route exact path="/results" component={Planner} />
+            <Route exact path="/results" component={Results} />
 
           </Switch>
         </Router>
@@ -27,6 +28,4 @@ class App extends Component {
   }
 }
  
-
-
 export default App;
