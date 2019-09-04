@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MenuItem from './MenuItem.js';
 import './navbar.css';
 
-class navbar extends Component {
+class Navbar extends Component {
     state = {
         activeItem: '',
         activeItemPosition: 0,
@@ -16,7 +16,7 @@ class navbar extends Component {
         ]
     }
     
-    handleClick(activeItem) {
+    handleClick = activeItem => {
       return e => {
         e.preventDefault()
       
@@ -38,5 +38,7 @@ class navbar extends Component {
       )
     }
   }
+
+  export default Navbar;
  
   
