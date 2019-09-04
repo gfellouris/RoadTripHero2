@@ -1,0 +1,6 @@
+#billboard {
+    background-image: url(https://res.cloudinary.com/delacue/image/upload/v1567553396/image_3_ln60x1.png);
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+}

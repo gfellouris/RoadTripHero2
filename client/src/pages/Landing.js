@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import SignUp from "../components/SignUp";
 import GlobalContext from '../context';
-import {Container, Row, Col } from 'reactstrap';
 import './landing.css';
 
 class Landing extends Component {

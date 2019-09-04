@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withFirebase } from "./Firebase";
 import GlobalContext from "../context/";
 import Buttons from "../components/Buttons/Buttons";
+import './signUp.css';
 
 class SignUpBase extends Component {
   static contextType = GlobalContext;
@@ -32,7 +33,7 @@ class SignUpBase extends Component {
 
     return (
       <div className="row justify-content-center">
-        <div className="col-6">
+        <div className="col-6" id="billboard">
           <div className="form-group">
             <input
               className="form-control my-2"
@@ -54,7 +55,7 @@ class SignUpBase extends Component {
               btnName="Sign Up"
               isInvalid={isInvalid}
               onClickEvent={this.signUpUser}
-            />{'    '}
+            />
 
             <Buttons
               btnStyle="success"
