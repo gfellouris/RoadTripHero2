@@ -18,6 +18,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/planner" component={Planner} />
+            <Route exact path="/results" component={Planner} />
+
           </Switch>
         </Router>
       </Global>
