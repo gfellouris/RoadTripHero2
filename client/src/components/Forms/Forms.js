@@ -1,7 +1,7 @@
-import React from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import React, {Component} from 'react';
+import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-export default class Example extends React.Component {
+export default class Forms extends Component {
   render() {
     return (
       <Form>
