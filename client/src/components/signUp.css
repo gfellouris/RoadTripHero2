@@ -1,0 +1,16 @@
+#billboard {
+    background-image: url(https://res.cloudinary.com/delacue/image/upload/v1567614838/greenSign-_Converted_ja975n.png);
+    margin-top: 0px;
+    background-size: 100% 100%;
+    padding: 8%;
+    background-repeat: no-repeat;
+    
+
+}
+
+img {
+    height: 140px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
