@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import React, {Component} from 'react';
-import './App.css';
-import MessageForm from "./components/MessageForm";
-import MapLeaf from "./components/MapLeaf.js";
-
-
-
-class App extends Component {
-  state = {  }
-  render() { 
-    return ( 
-      <>
-      <MapLeaf/>
-      <MessageForm/>
-      </>
-     );
-=======
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Global from "./context/Global";
@@ -36,7 +18,6 @@ class App extends Component {
         </Router>
       </Global>
     );
->>>>>>> 47edfb5b4a919cbb93e7430c42ac8f29cbd227bc
   }
 }
  
