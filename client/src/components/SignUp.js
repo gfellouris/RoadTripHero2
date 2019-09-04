@@ -35,17 +35,20 @@ class SignUpBase extends Component {
       <div className="row justify-content-center">
         <div className="col-6" id="billboard">
           <div className="form-group">
+            <img src="https://res.cloudinary.com/delacue/image/upload/v1567612455/BlueRTH2WHITE_gk3x3o.png" alt="Road Trip Hero logo"></img>
             <input
               className="form-control my-2"
               name="email"
               type="text"
               value={this.state.email}
+              placeholder="E-mail"
               onChange={this.handleInputChange}
             />
             <input
               className="form-control my-2"
               name="password"
               type="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.handleInputChange}
             />
