@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MenuItem from './MenuItem.js';
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import './navbar.css';
 
 class Navbar extends Component {
@@ -31,10 +32,57 @@ class Navbar extends Component {
     render() {
       const menuItems = this.state.menuItems.map(item => <MenuItem item={ item } handleClick={ this.handleClick }/>)
       return (
-        <div className='menu-container'>
-          <span className='menu-item--active' style={{ top: this.state.activeItemPosition, backgroundColor: this.state.activeItemColor }}/>
-          { menuItems }
-        </div>
+        <SideNav
+        onSelect={(selected) => {
+       
+        }}
+    >
+        <SideNav.Toggle />
+        <SideNav.Nav >
+            <NavItem eventKey="Planner">
+                <NavIcon>
+                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                </NavIcon>
+                <NavText>
+                    Road Trip Hero
+                </NavText>
+            </NavItem>
+            <NavItem eventKey="results">
+                <NavIcon>
+                    <i className="fas fa-road" style={{ fontSize: '1.75em' }} />
+                </NavIcon>
+                <NavText>
+                   Trip Planner
+                </NavText>
+                
+            </NavItem>
+            <NavItem eventKey="Map">
+                <NavIcon>
+                    <i className="fas fa-map-marked-alt" style={{ fontSize: '1.75em' }} />
+                </NavIcon>
+                <NavText>
+                    Map
+                </NavText>
+            </NavItem>
+            <NavItem eventKey="Contact Us">
+                <NavIcon>
+                    <i className="fas fa-map-marked-alt" style={{ fontSize: '1.75em' }} />
+                </NavIcon>
+                <NavText>
+                    Contact Us
+                </NavText>
+            </NavItem>
+            <NavItem eventKey="Logout">
+                <NavIcon>
+                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                </NavIcon>
+                <NavText>
+                    Log Out
+                </NavText>
+            </NavItem>
+        </SideNav.Nav>
+    </SideNav>
+      
       )
     }
   }
