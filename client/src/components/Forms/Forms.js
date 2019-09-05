@@ -6,6 +6,7 @@ export default class Forms extends Component {
   render() {
     return (
       <Form className="tripInput">
+        <h1>Plan Your Trip Here!</h1>
         <Row form>
           <Col md={6}>
             <FormGroup className="name">
