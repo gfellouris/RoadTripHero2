@@ -1,0 +1,64 @@
+.tripInput{
+    background-color: #388e3c;
+    margin-top: 100px;
+    padding: 20px 20px 10px 20px;
+    border: solid white 2px;
+    border-radius: 25px;
+    font-family: 'Overpass', sans-serif;
+    text-align: center;
+    
+}
+h1{
+    color: white;
+    border: solid white 2px;
+    border-radius: 25px;
+    font-size: 60px;
+}
+.border{
+    border: solid white 2px;
+}
+.title {
+    color: white;
+    font-size: 25px;
+}
+/* .name{
+    margin: 0 auto;
+} */
+.submit{
+    background-color: #263238;
+    padding: 10px 10px 10px 10px;
+    font-size: 25px;
+    border: solid white 2px;
+    border-radius: 25px;
+    
+    margin-bottom: 20px;
+
+}
+#exampleTrip{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleStart{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleCity{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleState{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleZip{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleEnd{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+/* #exampleStops{
+    border: solid white 2px;
+    border-radius: 25px;
+} */
