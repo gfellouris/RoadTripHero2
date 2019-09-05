@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+
 export default class Forms extends Component {
   render() {
     return (
@@ -61,6 +62,7 @@ export default class Forms extends Component {
             </FormGroup>  
           </Col>
         </Row>
+        
         <Button>Save Your Trip!</Button>
       </Form>
     );
