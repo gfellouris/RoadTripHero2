@@ -64,10 +64,6 @@ export default class Forms extends Component {
             </FormGroup>  
           </Col>
         </Row>
-<<<<<<< HEAD
-        
-        <Button>Save Your Trip!</Button>
-=======
         {/* <Row form>
           <Col md={6}>
             <FormGroup>
@@ -77,7 +73,6 @@ export default class Forms extends Component {
           </Col>
         </Row> */}
         <Button className="submit">Save Your Trip!</Button>
->>>>>>> 857dc1cdf49d257b62f9aa8ae79577dace450c19
       </Form>
     );
   }

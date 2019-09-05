@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Form from "../components/Forms/Forms.js";
+import TripList from "../components/TripList/TripList.js"
 import { Col, Row, Container } from "../components/Grid/index.js";
 import "../pages/planner.css"
 
@@ -15,14 +16,15 @@ class Planner extends Component {
                     </Col>
                 </Row>
             </Container>
+            <Container fluid>
+                <Row >
+                    <Col size="md-6">
+                        <TripList> 
+                        </TripList>
+                    </Col>
+                </Row>
+            </Container>
             </>
-            // <Container fluid>
-            //     <Row >
-            //         <Col size="md-6">
-                        
-            //         </Col>
-            //     </Row>
-            // </Container>
         )
     }
 };
