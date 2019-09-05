@@ -5,6 +5,8 @@ import Buttons from "../components/Buttons/Buttons";
 import { Col, Row, Container } from "../components/Grid/index.js";
 import "./signUp.css";
 import {Animated} from "react-animated-css";
+import SignInWithGoogle from "../components/SignInWithGoogle"
+
 
 class SignUpBase extends Component {
   static contextType = GlobalContext;
@@ -34,6 +36,8 @@ class SignUpBase extends Component {
     const isInvalid = this.state.email === "" || this.state.password === "";
 
     return (
+
+      
      
       <Animated animationIn="bounceInLeft" animationInDelay="1000" animationOut="fadeOut" isVisible={true}>
       <Container fluid>
@@ -67,13 +71,13 @@ class SignUpBase extends Component {
                 isInvalid={isInvalid}
                 onClickEvent={this.signUpUser}
               />
-
-              <Buttons
-                btnStyle="success"
+              
+              <SignInWithGoogle/>
+              {/* <Buttons  btnStyle="success"
                 btnName="Sign in with Google"
                 isInvalid={isInvalid}
                 onClickEvent={this.signUpUser}
-              />
+              />   */}
             </div>
           </Col>
         </Row>
@@ -88,10 +92,4 @@ const SignUp = withFirebase(SignUpBase);
 
 export default SignUp;
 
-/* <button
-              disabled={isInvalid}
-              className="btn btn-success"
-              onClick={this.signUpUser}
-            >
-              Sign Up
-            </button> */
+
