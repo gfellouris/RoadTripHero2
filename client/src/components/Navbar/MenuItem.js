@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 function MenuItem(props) {
   return (
@@ -12,4 +12,4 @@ function MenuItem(props) {
   );
 }
 
-export default MennuItem;
+export default MenuItem;
