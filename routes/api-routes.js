@@ -27,6 +27,17 @@ module.exports = function(app) {
     });
   });
 
+  app.put("/api/insertuser", function(req, resExpress) {
+    ormQueries.insertUser(
+      ["name", "email", "photoUrl", "uid"],
+      [req.body.name, req.body.email, req.body.photourl, req.body.uid],
+      function(result) {
+        // Send back the ID of the new bucketlist item
+        resExpress.json({ id: result.insertId });
+      }
+    );
+  });
+
   app.post("/api/savetripplan", function(req, resExpress) {
     ormQueries.insertData(
       ["userId", "tripName", "origin", "destination", "numberOfStops"],
@@ -50,6 +61,18 @@ module.exports = function(app) {
     ormQueries.getTripPlans(userId, function(data) {
       // console.log(data);
       resExpress.json(data);
+    });
+  });
+
+  app.delete("/api/deletetripplan/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
+    ormQueries.deleteTripPlan(condition, function(result) {
+      if (result.affectedRows == 0) {
+        // If no rows were changed, then the ID must not exist, so 404
+        return res.status(404).end();
+      } else {
+        res.status(200).end();
+      }
     });
   });
 

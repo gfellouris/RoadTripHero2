@@ -8,6 +8,12 @@ var ormQueries = {
     });
   },
 
+  insertUser: function(cols, vals, cb) {
+    orm.insertUser("userProfiles", cols, vals, function(res) {
+      cb(res);
+    });
+  },
+
   insertData: function(cols, vals, cb) {
     orm.insertData("tripPlans", cols, vals, function(res) {
       cb(res);
@@ -17,6 +23,12 @@ var ormQueries = {
   getTripPlans: function(findUser, cb) {
     // tableInput, colToSearch, valOfCol, cb
     orm.getTripPlans(findUser, function(res) {
+      cb(res);
+    });
+  },
+
+  deleteTripPlan: function(condition, cb) {
+    orm.deleteTripPlan("tripPlans", condition, function(res) {
       cb(res);
     });
   }
