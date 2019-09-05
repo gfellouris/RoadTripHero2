@@ -6,6 +6,7 @@ import "../pages/planner.css"
 class Planner extends Component {
     render() {
         return (
+            <>
             <Container fluid>
                 <Row >
                     <Col size="md-6" >
@@ -14,13 +15,14 @@ class Planner extends Component {
                     </Col>
                 </Row>
             </Container>
-            <Container fluid>
-                <Row >
-                    <Col size="md-6">
+            </>
+            // <Container fluid>
+            //     <Row >
+            //         <Col size="md-6">
                         
-                    </Col>
-                </Row>
-            </Container>
+            //         </Col>
+            //     </Row>
+            // </Container>
         )
     }
 };
