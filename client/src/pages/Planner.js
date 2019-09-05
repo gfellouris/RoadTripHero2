@@ -10,8 +10,14 @@ class Planner extends Component {
                 <Row >
                     <Col size="md-6" >
                         <Form >
-
                         </Form>
+                    </Col>
+                </Row>
+            </Container>
+            <Container fluid>
+                <Row >
+                    <Col size="md-6">
+                        
                     </Col>
                 </Row>
             </Container>
