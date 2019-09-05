@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Form from "../components/Forms/Forms.js";
+
 import TripList from "../components/TripList/TripList.js";
 import { Col, Row, Container } from "../components/Grid/index.js";
 import GlobalContext from '../context/'
@@ -7,11 +8,12 @@ import GlobalContext from '../context/'
 import "../pages/planner.css"
 
 class Planner extends Component {
+   
 
     static contextType = GlobalContext
 
     render() {
-        console.log(this.GlobalContext.user.uid)
+        // console.log(this.GlobalContext.user.uid)
         return  (
             <>
             <Container fluid>
