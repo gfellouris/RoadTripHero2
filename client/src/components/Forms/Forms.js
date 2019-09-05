@@ -63,6 +63,14 @@ export default class Forms extends Component {
             </FormGroup>  
           </Col>
         </Row>
+        {/* <Row form>
+          <Col md={6}>
+            <FormGroup>
+              <Label for="exampleStops"className="title">Number of Stops</Label>
+              <Input type="number" name="stops" id="exampleStops"/>
+            </FormGroup>
+          </Col>
+        </Row> */}
         <Button className="submit">Save Your Trip!</Button>
       </Form>
     );
