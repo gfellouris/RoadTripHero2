@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
-import { withFirebase } from "./Firebase";
-import GlobalContext from "../context/";
-import Buttons from "../components/Buttons/Buttons";
+import { withFirebase } from "../Firebase";
+import GlobalContext from "../../context/";
+import Buttons from "../Buttons/Buttons";
 
 class SignInGoogleBase extends Component {
   static contextType = GlobalContext;

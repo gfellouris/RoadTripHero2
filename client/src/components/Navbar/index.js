@@ -17,7 +17,7 @@ class Navbar extends Component {
           </NavItem>
           <NavItem eventKey="results">
             <NavIcon>
-              <i className="fas fa-road" style={{ fontSize: "1.75em" }} />
+              <i className="fas fa-road" style={{ fontSize: "30px" }} />
             </NavIcon>
             <NavText>
               <Link to="/planner">Trip Planner</Link>
