@@ -20,9 +20,9 @@ class SignInGoogleBase extends Component {
       .doSignInWithGoogle()
       .then(socialAuthUser => {
         const authUser = {
-          username: socialAuthUser.user.displayName,
+          name: socialAuthUser.user.displayName,
           email: socialAuthUser.user.email,
-          avatar: socialAuthUser.user.photoURL,
+          photoUrl: socialAuthUser.user.photoURL,
           uid: socialAuthUser.user.uid
         };
         return authUser;
@@ -37,7 +37,8 @@ class SignInGoogleBase extends Component {
             // take the id out the response
             API.getUser(authUser)
               .then(res => {
-                if (res) {
+                console.log(res.data)
+                if (res.data.length) {
                   const { id } = res.data;
                   this.context.setUser({ ...authUser, id });
                   this.props.history.push("/planner");
