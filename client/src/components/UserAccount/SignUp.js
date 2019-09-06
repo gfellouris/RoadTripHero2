@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { withFirebase } from "./Firebase";
-import GlobalContext from "../context/";
-import Buttons from "../components/Buttons/Buttons";
-import { Col, Row, Container } from "../components/Grid/index.js";
+import { withFirebase } from "../Firebase";
+import GlobalContext from "../../context";
+import Buttons from "../Buttons/Buttons";
+import { Col, Row, Container } from "../Grid/index.js";
 import "./signUp.css";
 import {Animated} from "react-animated-css";
-import SignInWithGoogle from "../components/SignInWithGoogle"
+import SignInWithGoogle from "./SignInWithGoogle"
 
 
 class SignUpBase extends Component {

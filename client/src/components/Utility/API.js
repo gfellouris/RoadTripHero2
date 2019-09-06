@@ -1,5 +1,4 @@
 import axios from "axios";
-import GlobalContext from "../../context/";
 
 export default {
     // Save trip plans for auser
@@ -7,7 +6,15 @@ export default {
         return axios.post("/api/savetripplan")
     },
     // Get all trips for a user
-    getTrips: function () {
-        return axios.get("/api/getTripPlans/abV446ObDaVx7Ql2w5xEyou7Jfm2");
+    getTrips: function (user) {
+        return axios.get("/api/getTripPlans/" + user.id);
     },
+
+    getUser: function (user) {
+        return axios.get("/api/userprofile/" + user.uid)
+    },
+
+    createUser: function (user) {
+        return axios.post("/api/insertuser", user);
+    }
 }

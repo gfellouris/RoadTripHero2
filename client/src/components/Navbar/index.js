@@ -17,7 +17,7 @@ class Navbar extends Component {
           </NavItem>
           <NavItem eventKey="results">
             <NavIcon>
-              <i className="fas fa-road" style={{ fontSize: "1.75em" }} />
+              <i className="fas fa-road" style={{ fontSize: "30px" }} />
             </NavIcon>
             <NavText>
               <Link to="/planner">Trip Planner</Link>
@@ -27,7 +27,7 @@ class Navbar extends Component {
             <NavIcon>
               <i
                 className="fas fa-map-marked-alt"
-                style={{ fontSize: "1.75em" }}
+                style={{ fontSize: "30px" }}
               />
             </NavIcon>
             <NavText>
@@ -36,7 +36,7 @@ class Navbar extends Component {
           </NavItem>
           <NavItem eventKey="Contact Us">
             <NavIcon>
-              <i className="far fa-comments" style={{ fontSize: "1.75em" }} />
+              <i className="far fa-comments" style={{ fontSize: "30px" }} />
             </NavIcon>
             <NavText>
               <Link to="/">Contact Us</Link>
@@ -44,7 +44,7 @@ class Navbar extends Component {
           </NavItem>
           <NavItem eventKey="Logout">
             <NavIcon>
-              <i className="fas fa-power-off" style={{ fontSize: "1.75em" }} />
+              <i className="fas fa-power-off" style={{ fontSize: "30px" }}/>
             </NavIcon>
             <NavText>
               <Link to="/">Log Out</Link>

@@ -7,7 +7,8 @@ class Global extends Component {
             username: '',
             email: '',
             avatar: '',
-            uid: ''
+            uid: '',
+
         }
      }
 
@@ -21,7 +22,8 @@ class Global extends Component {
                 username: user.username,
                 email: user.email,
                 avatar: user.avatar, 
-                uid: user.uid
+                uid: user.uid,
+                id: user.id
             }
         })
     }
