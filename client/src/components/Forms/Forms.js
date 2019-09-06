@@ -4,6 +4,41 @@ import "./Forms.css";
 
 
 export default class Forms extends Component {
+  state ={
+    exampleTrip: "",
+    exampleStart: "",
+    exampleCity: "",
+    exampleState: "",
+    exampleZip: 0,
+    exampleEnd: "",
+    exampleEndCity: "",
+    exampleEndState: "",
+    exampleEndZip: 0,
+  };
+
+  handleInputChange = event => {
+    const {name,value} = event.target;
+
+    this.setState({
+      [name]: value
+    });
+  };
+  
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.setState({
+      exampleTrip: "",
+      exampleStart: "",
+      exampleCity: "",
+      exampleState: "",
+      exampleZip: "",
+      exampleEnd: "",
+      exampleEndCity: "",
+      exampleEndState: "",
+      exampleEndZip: ""
+    });
+  };
+
   render() {
     return (
       <Form className="tripInput">
@@ -27,13 +62,13 @@ export default class Forms extends Component {
               <Input type="text" name="city" id="exampleCity"/>
             </FormGroup>
           </Col>
-          <Col md={4}>
+          <Col md={2}>
             <FormGroup>
               <Label for="exampleState" className="title">State</Label>
               <Input type="text" name="state" id="exampleState"/>
             </FormGroup>
           </Col>
-          <Col md={2}>
+          <Col md={4}>
             <FormGroup>
               <Label for="exampleZip" className="title">Zip</Label>
               <Input type="text" name="zip" id="exampleZip"/>
@@ -47,27 +82,23 @@ export default class Forms extends Component {
         <Row form>
           <Col md={6}>
             <FormGroup>
-              <Label for="exampleCity" className="title">City</Label>
+              <Label for="exampleEndCity" className="title">City</Label>
               <Input type="text" name="city" id="exampleCity"/>
-            </FormGroup>
-          </Col>
-          <Col md={4}>
-            <FormGroup>
-              <Label for="exampleState" className="title">State</Label>
-              <Input type="text" name="state" id="exampleState"/>
             </FormGroup>
           </Col>
           <Col md={2}>
             <FormGroup>
-              <Label for="exampleZip" className="title">Zip</Label>
+              <Label for="exampleEndState" className="title">State</Label>
+              <Input type="text" name="state" id="exampleState"/>
+            </FormGroup>
+          </Col>
+          <Col md={4}>
+            <FormGroup>
+              <Label for="exampleEndZip" className="title">Zip</Label>
               <Input type="text" name="zip" id="exampleZip"/>
             </FormGroup>  
           </Col>
         </Row>
-<<<<<<< HEAD
-        
-        <Button>Save Your Trip!</Button>
-=======
         {/* <Row form>
           <Col md={6}>
             <FormGroup>
@@ -76,8 +107,7 @@ export default class Forms extends Component {
             </FormGroup>
           </Col>
         </Row> */}
-        <Button className="submit">Save Your Trip!</Button>
->>>>>>> 857dc1cdf49d257b62f9aa8ae79577dace450c19
+        <Button className="submit"onClick={this.handleFormSubmit}>Save Your Trip!</Button>
       </Form>
     );
   }

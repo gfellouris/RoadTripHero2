@@ -24,15 +24,16 @@ module.exports = function(app) {
     ormQueries.selectUserPofile(userId, function(data) {
       // console.log(data);
       resExpress.json(data);
+      console.log(data)
     });
   });
 
-  app.put("/api/insertuser", function(req, resExpress) {
+  app.post("/api/insertuser", function(req, resExpress) {
     ormQueries.insertUser(
       ["name", "email", "photoUrl", "uid"],
-      [req.body.name, req.body.email, req.body.photourl, req.body.uid],
+      [req.body.name, req.body.email, req.body.photoUrl, req.body.uid],
       function(result) {
-        // Send back the ID of the new bucketlist item
+      
         resExpress.json({ id: result.insertId });
       }
     );
