@@ -8,7 +8,7 @@ class Global extends Component {
             email: '',
             avatar: '',
             uid: '',
-
+            id: ''
         }
      }
 
