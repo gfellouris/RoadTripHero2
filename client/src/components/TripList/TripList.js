@@ -2,8 +2,12 @@ import React from 'react';
 import { Table } from 'reactstrap';
 import TripRow from "./index.js";
 import API from "../Utility/API.js";
+import GlobalContext from '../../context/index.js';
+
 
 export default class TripList extends React.Component {
+    static contextType = GlobalContext;
+
     state = {
         tripPlans: []
     };
@@ -13,11 +17,12 @@ export default class TripList extends React.Component {
     }
 
     loadTrips = () => {
-        API.getTrips()
+        API.getTrips(this.context.user)
           .then(res => this.setState({ tripPlans: res.data }))
           .catch(err => console.log(err));
       };
     render() {
+        console.log(this.context.user)
         return (
             <Table responsive>
                 <thead>
