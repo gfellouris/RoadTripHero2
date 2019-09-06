@@ -8,6 +8,6 @@ export default {
     },
     // Get all trips for a user
     getTrips: function () {
-        return axios.get("/api/getTripPlans/" + this.GlobalContext.user.uid);
+        return axios.get("/api/getTripPlans/abV446ObDaVx7Ql2w5xEyou7Jfm2");
     },
 }
