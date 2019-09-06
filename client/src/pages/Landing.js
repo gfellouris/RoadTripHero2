@@ -6,7 +6,7 @@ import './landing.css';
 
 class Landing extends Component {
 
-static contextType = GlobalContext 
+static contextType = GlobalContext
   state = {};
 
   render() {
@@ -22,7 +22,7 @@ static contextType = GlobalContext
         
         <h1>{this.context.email}</h1>
         <SignUp/>
-        {/* <SignInWithGoogle /> */}
+        <SignInWithGoogle />
        </>
     );
   }
