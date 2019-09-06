@@ -62,13 +62,13 @@ export default class Forms extends Component {
               <Input type="text" name="city" id="exampleCity"/>
             </FormGroup>
           </Col>
-          <Col md={4}>
+          <Col md={2}>
             <FormGroup>
               <Label for="exampleState" className="title">State</Label>
               <Input type="text" name="state" id="exampleState"/>
             </FormGroup>
           </Col>
-          <Col md={2}>
+          <Col md={4}>
             <FormGroup>
               <Label for="exampleZip" className="title">Zip</Label>
               <Input type="text" name="zip" id="exampleZip"/>
@@ -86,13 +86,13 @@ export default class Forms extends Component {
               <Input type="text" name="city" id="exampleCity"/>
             </FormGroup>
           </Col>
-          <Col md={4}>
+          <Col md={2}>
             <FormGroup>
               <Label for="exampleEndState" className="title">State</Label>
               <Input type="text" name="state" id="exampleState"/>
             </FormGroup>
           </Col>
-          <Col md={2}>
+          <Col md={4}>
             <FormGroup>
               <Label for="exampleEndZip" className="title">Zip</Label>
               <Input type="text" name="zip" id="exampleZip"/>
