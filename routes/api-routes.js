@@ -24,6 +24,7 @@ module.exports = function(app) {
     ormQueries.selectUserPofile(userId, function(data) {
       // console.log(data);
       resExpress.json(data);
+      console.log(data)
     });
   });
 
@@ -32,7 +33,7 @@ module.exports = function(app) {
       ["name", "email", "photoUrl", "uid"],
       [req.body.name, req.body.email, req.body.photourl, req.body.uid],
       function(result) {
-        // Send back the ID of the new bucketlist item
+      
         resExpress.json({ id: result.insertId });
       }
     );
