@@ -9,10 +9,12 @@ class Planner extends Component {
     static contextType = GlobalContext
 
     render() {
+        console.log(this.context.user.uid)
         return (
             <>
             <Container fluid>
                 <h1>{JSON.stringify(this.context.user)}</h1>
+                
                 <Row >
                     <Col size="md-6" >
                         <Form >

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withFirebase } from "./Firebase";
 import GlobalContext from "../context/";
-import Buttons from "../components/Buttons/Buttons";
+//import Buttons from "../components/Buttons/Buttons";
 import { Col, Row, Container } from "../components/Grid/index.js";
 import "./signUp.css";
 import {Animated} from "react-animated-css";
@@ -65,12 +65,12 @@ class SignUpBase extends Component {
                 onChange={this.handleInputChange}
               />
 
-              <Buttons
+              {/* <Buttons
                 btnStyle="success"
                 btnName="Sign Up"
                 isInvalid={isInvalid}
                 onClickEvent={this.signUpUser}
-              />
+              /> */}
               
               <SignInWithGoogle/>
               {/* <Buttons  btnStyle="success"
