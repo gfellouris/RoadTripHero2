@@ -11,7 +11,7 @@ class Planner extends Component {
     static contextType = GlobalContext
 
     render() {
-        console.log(this.GlobalContext.user.uid)
+        // console.log(this.GlobalContext.user.uid)
         return  (
             <>
             <Container fluid>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import GlobalContext from "../../context/";
 
+
 export default {
     // Save trip plans for auser
     saveTrip: function () {
@@ -8,6 +9,6 @@ export default {
     },
     // Get all trips for a user
     getTrips: function () {
-        return axios.get("/api/getTripPlans/" + this.GlobalContext.user.uid);
+        return axios.get("/api/getTripPlans/" + uid);
     },
 }
