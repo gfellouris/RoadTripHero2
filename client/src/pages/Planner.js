@@ -25,10 +25,10 @@ class Planner extends Component {
                         <Form >
                         </Form>
                     </Col>
-                    <Col size="md-6">
+                    {/* <Col size="md-6">
                         <TripList> 
                         </TripList>
-                    </Col>
+                    </Col> */}
                 </Row>
             </Container>
             {/* <Container fluid>
