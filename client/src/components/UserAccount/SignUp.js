@@ -39,7 +39,7 @@ class SignUpBase extends Component {
 
       
      
-      <Animated animationIn="bounceInLeft" animationInDelay="1000" animationOut="fadeOut" isVisible={true}>
+      <Animated animationIn="bounceInLeft" animationInDelay={1000} animationOut="fadeOut" isVisible={true}>
       <Container fluid>
         <Row >
           <Col size="md-6" >
