@@ -7,7 +7,7 @@ export default {
     },
     // Get all trips for a user
     getTrips: function (user) {
-        return axios.get("/api/getTripPlans/" + user.id);
+        return axios.get("/api/gettripplans/" + user.id);
     },
 
     getUser: function (user) {
