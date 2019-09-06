@@ -58,6 +58,19 @@ h1{
     border: solid white 2px;
     border-radius: 25px;
 }
+#exampleEndCity{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleEndState{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleEndZip{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+
 /* #exampleStops{
     border: solid white 2px;
     border-radius: 25px;
