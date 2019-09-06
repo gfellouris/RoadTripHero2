@@ -77,5 +77,10 @@ module.exports = function(app) {
     });
   });
 
+
+  app.post("/api/route", function(req, resExpress) {
+        resExpress.json({ stopsOnRoutes: req.body.stopsOnRoutes });
+        console.log(req.body.stopsOnRoutes)
+  });
   // end var ormQueries
 };
