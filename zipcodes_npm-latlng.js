@@ -1,20 +1,21 @@
 const latitude = 40.54014;
 const longitude = -74.50975000000001;
-const key = "AIzaSyD6Zh5HsEPeyGkktmpXijxz0NerXxlDq6Q";
+const key = "U1AkiJAi94sqkgylj4B1VaQh3YZxMMTt";
 
-// import coordsToZip from "coords-to-zip";
- 
-// var coordsToZip = require("coords-to-zip");
+var NodeGeocoder = require("node-geocoder");
 
+var options = {
+  provider: "mapquest",
+  apiKey: key
+};
 
- 
-// const zip = coordsToZip({ latitude, longitude }, API_KEY);
+var geocoder = NodeGeocoder(options);
 
-const reverseGeocode = require('latlng-to-zip');
-reverseGeocode({latitude, longitude}, key)
-  .then(function zipcode() {
-      console.log(zipcode);
-  }) 
-  .catch(err => err);
- 
-  
+geocoder
+  .reverse({ lat: 45.767, lon: 4.833 })
+  .then(function(res) {
+    console.log(res[0].zipcode);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });

@@ -1,5 +1,5 @@
 var connection = require("../db/connection");
-
+var getLocationInfo = require("../public/assets/js/getLocationInfo.js");
 // db/orm-models.js is the ORM models file which links to the config/orm.js
 var ormQueries = require("../db/orm-models.js");
 module.exports = function(app) {
@@ -76,10 +76,22 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/safetyscore/:lat/:lng", function(req, resExpress) {
+    var lat = req.params.lat;
+    var lng = req.params.lng;
+    getLocationInfo.getZipCode(lat, lng, function(result) {
+      var zipCode = result;
 
-  app.post("/api/route", function(req, resExpress) {
-        resExpress.json({ stopsOnRoutes: req.body.stopsOnRoutes });
-        console.log(req.body.stopsOnRoutes)
+      getLocationInfo.safetyScore(zipCode, function(result) {
+        var safetyScore = result;
+        resExpress.json({ zipCode: zipCode, safetyScore: safetyScore });
+      });
+    });
   });
+
+  // app.post("/api/route", function(req, resExpress) {
+  //       resExpress.json({ stopsOnRoutes: req.body.stopsOnRoutes });
+  //       console.log(req.body.stopsOnRoutes)
+  // });
   // end var ormQueries
 };
