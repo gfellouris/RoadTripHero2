@@ -12,20 +12,22 @@ export default class TripList extends React.Component {
         savedTrips: []
     };
 
-    componentDidMount() {
-        this.loadTrips();
-    }
-
-
-
-
-    loadTrips = () => {
-        API.getTrips(this.context.user.id)
-          .then(res => this.setState({ savedTrips: res.data }))
+    loadTrips = (uzer) => {
+        API.getTrips(uzer.id)
+          .then(
+              res => {
+              console.log(res.data)
+              this.setState({ savedTrips: res.data })})
           .catch(err => console.log(err));
       };
+    
+      componentDidMount() {
+        this.loadTrips(this.context.user);
+    }
+
     render() {
-        console.log(this.context.user.id)
+        console.log(this.context.user)
+        console.log(this.state.savedTrips)
         return (
             <Table responsive>
                 <thead>

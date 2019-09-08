@@ -18,26 +18,23 @@ class Global extends Component {
   };
 
   setUser = user => {
-    this.setState({
-      user: {
-        name: user.name,
-        email: user.email,
-        photoUrl: user.photoUrl,
-        uid: user.uid
-      }
-    });
+   
     API.getUser(user).then(res => {
         console.log(res.data);
-  
-        const { id } = res.data;
+        console.log(user)
+        const  resID  = res.data[0].id;
   
         this.setState({
           user: {
-            id: id
+            name: user.name,
+            email: user.email,
+            photoUrl: user.photoUrl,
+            uid: user.uid,
+            id: resID
           }
         });
       });
-  };
+    }
 
 
 
@@ -53,7 +50,7 @@ class Global extends Component {
         {this.props.children}
       </GlobalContext.Provider>
     );
+  
   }
 }
-
 export default Global;

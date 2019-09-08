@@ -6,8 +6,8 @@ export default {
         return axios.post("/api/savetripplan")
     },
     // Get all trips for a user
-    getTrips: function (id) {
-        return axios.get("/api/gettripplans/" + id);
+    getTrips: function (user) {
+        return axios.get("/api/gettripplans/" + user.id);
     },
 
     getUser: function (user) {

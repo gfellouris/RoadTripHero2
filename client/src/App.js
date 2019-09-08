@@ -13,7 +13,7 @@ class App extends Component {
   // make function to update state here and pass down the functions and state value as props so
   // so that data is available everywhere in the app
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <Global>
         <Router>
