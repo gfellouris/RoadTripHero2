@@ -18,21 +18,18 @@ class Global extends Component {
   };
 
   setUser = user => {
-    this.setState({
-      user: {
-        name: user.name,
-        email: user.email,
-        photoUrl: user.photoUrl,
-        uid: user.uid
-      }
-    });
+   
     API.getUser(user).then(res => {
         console.log(res.data);
-  
+        console.log(user)
         const  resID  = res.data[0].id;
   
         this.setState({
           user: {
+            name: user.name,
+            email: user.email,
+            photoUrl: user.photoUrl,
+            uid: user.uid,
             id: resID
           }
         });
