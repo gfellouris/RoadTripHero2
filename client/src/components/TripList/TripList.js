@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'reactstrap';
 import TripRow from "./index.js";
 import API from "../Utility/API.js";
-import GlobalContext from '../../context/index.js';
+import GlobalContext from '../../context/';
 
 
 export default class TripList extends React.Component {
@@ -12,22 +12,24 @@ export default class TripList extends React.Component {
         savedTrips: []
     };
 
-    loadTrips = (uzer) => {
-        API.getTrips(uzer.id)
+    componentDidMount() {
+        this.loadTrips(this.context.user);
+    }
+
+    loadTrips = (user) => {
+        console.log(this.context.user)
+        API.getTrips(user.id)
           .then(
               res => {
               console.log(res.data)
               this.setState({ savedTrips: res.data })})
           .catch(err => console.log(err));
       };
-    
-      componentDidMount() {
-        this.loadTrips(this.context.user);
-    }
 
     render() {
         console.log(this.context.user)
         console.log(this.state.savedTrips)
+        
         return (
             <Table responsive>
                 <thead>
@@ -36,6 +38,7 @@ export default class TripList extends React.Component {
                         <th>Saved Trips</th>
                     </tr>
                 </thead>
+                
                 {this.state.savedTrips.map(savedTrips => (
                     <TripRow
                         id={savedTrips.id}
