@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { compose } from "recompose";
-import { withFirebase } from "../Firebase";
-import GlobalContext from "../../context/";
-import Buttons from "../Buttons/Buttons";
-import API from "../Utility/API";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
+import { withFirebase } from '../Firebase';
+import GlobalContext from '../../context/';
+import Buttons from '../Buttons/Buttons';
+import API from '../Utility/API';
+import { handle } from './promise-handler';
 
 class SignInGoogleBase extends Component {
   static contextType = GlobalContext;
@@ -13,52 +14,70 @@ class SignInGoogleBase extends Component {
     error: null
   };
 
+  handleSignIn = async () => {
+    const [socialAuthUser, firebaseAuthError] = await handle(
+      this.props.firebase.doSignInWithGoogle()
+    );
+
+    if (firebaseAuthError) {
+      return console.log(firebaseAuthError);
+    }
+
+    if (socialAuthUser) {
+      const authUserObject = {
+        name: socialAuthUser.user.displayName,
+        email: socialAuthUser.user.email,
+        photoUrl: socialAuthUser.user.photoURL,
+        uid: socialAuthUser.user.uid
+      };
+
+      const [authenticatedUser, firebaseUserError] = await handle(
+        this.props.firebase.user(authUserObject.uid).set(authUserObject)
+      );
+
+      if (firebaseUserError) {
+        console.log(firebaseUserError);
+        this.setState({ error: firebaseUserError });
+      }
+
+      if (authenticatedUser) {
+        this.setState({ error: null });
+
+        const [userFromDatabaseResponse, databaseErr] = await handle(
+          API.getUser(authUserObject)
+        );
+
+        if (databaseErr) {
+          return console.log(databaseErr);
+        }
+
+        if (userFromDatabaseResponse.data.length) {
+          const { id } = userFromDatabaseResponse.data;
+          this.context.setUser({ ...authUserObject, id });
+          this.props.history.push('/planner');
+        } else {
+          const [newlyCreatedUser, creationError] = handle(
+            API.createUser(authUserObject)
+          );
+
+          if (creationError) {
+            return console.log(creationError);
+          }
+
+          if (newlyCreatedUser) {
+            const { id } = newlyCreatedUser.data;
+            this.context.setUser({ ...authUserObject, id });
+            this.props.history.push('/planner');
+          }
+        }
+      }
+    }
+  };
+
   onSubmit = event => {
     event.preventDefault();
 
-    this.props.firebase
-      .doSignInWithGoogle()
-      .then(socialAuthUser => {
-        const authUser = {
-          name: socialAuthUser.user.displayName,
-          email: socialAuthUser.user.email,
-          photoUrl: socialAuthUser.user.photoURL,
-          uid: socialAuthUser.user.uid
-        };
-        return authUser;
-      })
-      .then(authUser => {
-        this.props.firebase
-          .user(authUser.uid)
-          .set(authUser)
-          .then(() => {
-            this.setState({ error: null });
-            // make call to backend to get id that makes the link
-            // take the id out the response
-            API.getUser(authUser)
-              .then(res => {
-                console.log(res.data)
-                if (res.data.length) {
-                  const { id } = res.data;
-                  this.context.setUser({ ...authUser, id });
-                  this.props.history.push("/planner");
-                } else {
-                  API.createUser(authUser).then(res => {
-                    const { id } = res.data;
-                    this.context.setUser({ ...authUser, id });
-                    this.props.history.push("/planner");
-                  });
-                }
-              })
-              .catch(err => console.log(err));
-          })
-          .catch(error => {
-            this.setState({ error });
-          });
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
+    this.handleSignIn();
   };
 
   render() {

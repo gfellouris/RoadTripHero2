@@ -9,20 +9,23 @@ export default class TripList extends React.Component {
     static contextType = GlobalContext;
 
     state = {
-        tripPlans: []
+        savedTrips: []
     };
 
     componentDidMount() {
         this.loadTrips();
     }
 
+
+
+
     loadTrips = () => {
-        API.getTrips(this.context.user)
-          .then(res => this.setState({ tripPlans: res.data }))
+        API.getTrips(this.context.user.id)
+          .then(res => this.setState({ savedTrips: res.data }))
           .catch(err => console.log(err));
       };
     render() {
-        console.log(this.context.user)
+        console.log(this.context.user.id)
         return (
             <Table responsive>
                 <thead>
@@ -31,12 +34,12 @@ export default class TripList extends React.Component {
                         <th>Saved Trips</th>
                     </tr>
                 </thead>
-                {this.state.tripPlans.map(tripPlans => (
+                {this.state.savedTrips.map(savedTrips => (
                     <TripRow
-                        id={tripPlans.id}
-                        tripName={tripPlans.tripName}
-                        origin={tripPlans.origin}
-                        destination={tripPlans.destination}
+                        id={savedTrips.id}
+                        tripName={savedTrips.tripName}
+                        origin={savedTrips.origin}
+                        destination={savedTrips.destination}
                     />
                 ))}
             </Table>
