@@ -26,6 +26,7 @@ export default class TripList extends React.Component {
       };
     render() {
         console.log(this.context.user.id)
+        console.log(this.state.savedTrips)
         return (
             <Table responsive>
                 <thead>
