@@ -4,9 +4,9 @@ import GlobalContext from './index'
 class Global extends Component {
     state = { 
         user: {
-            username: '',
+            name: '',
             email: '',
-            avatar: '',
+            photoUrl: '',
             uid: '',
             id: ''
         }
@@ -19,9 +19,9 @@ class Global extends Component {
     setUser = user => {
         this.setState({
             user: {
-                username: user.username,
+                name: user.username,
                 email: user.email,
-                avatar: user.avatar, 
+                photoUrl: user.avatar, 
                 uid: user.uid,
                 id: user.id
             }
