@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'reactstrap';
-import TripRow from "./index.js";
+import TripCard from "./TripCard.js";
 import API from "../Utility/API.js";
 import GlobalContext from '../../context/';
 
@@ -9,16 +9,36 @@ export default class TripList extends React.Component {
     static contextType = GlobalContext;
 
     state = {
-        savedTrips: []
+        savedTrips: [
+            {
+            "id": 3,
+            "userId": 9,
+            "tripName": "Trip to Spain",
+            "origin": "1234 main st",
+            "destination": "disney world",
+            "numberOfStops": 9
+            },
+            {
+            "id": 4,
+            "userId": 9,
+            "tripName": "Girls trip",
+            "origin": "300 Atrium drive, somerset, nj",
+            "destination": "disney land",
+            "numberOfStops": 4
+            }
+            ]
     };
 
-    componentDidMount() {
-        this.loadTrips(this.context.user);
-    }
+    // componentDidMount() {
+    //    console.log(this.props.user)
+    //         this.loadTrips(this.props.user);
+    //     }
+
+        
 
     loadTrips = (user) => {
         console.log(this.context.user)
-        API.getTrips(user.id)
+        API.getTrips(user)
           .then(
               res => {
               console.log(res.data)
@@ -29,25 +49,19 @@ export default class TripList extends React.Component {
     render() {
         console.log(this.context.user)
         console.log(this.state.savedTrips)
-        
+        console.log(this.props.user)
         return (
-            <Table responsive>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Saved Trips</th>
-                    </tr>
-                </thead>
+            <div>
                 
                 {this.state.savedTrips.map(savedTrips => (
-                    <TripRow
+                    <TripCard
                         id={savedTrips.id}
                         tripName={savedTrips.tripName}
                         origin={savedTrips.origin}
                         destination={savedTrips.destination}
                     />
                 ))}
-            </Table>
+           </div>
         );
     }
 }

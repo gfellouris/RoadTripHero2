@@ -26,7 +26,8 @@ class Planner extends Component {
                         </Form>
                     </Col>
                     <Col size="md-6">
-                        <TripList> 
+                        <TripList
+                        user={this.context.user} > 
                         </TripList>
                     </Col>
                 </Row>
