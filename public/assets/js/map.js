@@ -17,7 +17,7 @@ var boxes = null;
 var zipcodes = [];
 var infowindow = new google.maps.InfoWindow();
 var markerType = "amber";
-
+var features = [];
 // Marker icons used for path
 // RAG Car images: http://gmap.pw/api_v3/makerchange/googleimg/maps-gc-pal4/
 var icons = {
@@ -116,43 +116,102 @@ function route() {
       }
 
       // build lat and lng path to display markers
-      var features = [];
 
-      for (var i = 0; i < path.length; i = i + 50) {
+      // Find the Safety Score of the Zip Code and return it
+
+      for (var i = 0; i < path.length; i = i + 20) {
         var latVal = path[i].lat();
         var lngVal = path[i].lng();
 
-        let queryString = "/api/safetyscore/" + latVal + "/" + lngVal;
-        $.get(queryString, function(data, status) {
-          console.log("safetyScore=" + data.safetyScore);
-          if (data.safetyScore < 50) {
-            markerType = "red";
-          } else if (data.safetyScore > 50 && data.safetyScore < 80) {
-            markerType = "amber";
-          } else {
-            markerType = "green";
-          }
-          console.log("markerType=" + markerType);
-        }).then(
-          features.push({
-            position: { lat: path[i].lat(), long: path[i].lng() },
-            type: markerType
-          })
-        );
+        features.push({
+          position: { lat: latVal, long: lngVal }
+          // type: markerType
+        });
       }
+
+      // console.log(features);
+
+      features.forEach(function(data) {
+        let queryString =
+          "/api/safetyscore/" + data.position.lat + "/" + data.position.long;
+
+        $.get(queryString)
+          .then(function(res, status) {
+            if (res.safetyScore < 50) {
+              data.type = "red";
+            } else if (res.safetyScore > 50 && res.safetyScore < 80) {
+              data.type = "amber";
+            } else {
+              data.type = "green";
+            }
+          })
+          .then(function() {
+            console.log(data.type);
+
+              var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(
+                  data.position.lat,
+                  data.position.long
+                ),
+                icon: icons[data.type].icon,
+                map: map
+              });
+              
+
+            // for (var i = 0; i < data.length; i++) {
+            //   var marker = new google.maps.Marker({
+            //     position: new google.maps.LatLng(
+            //       data[i].position.lat,
+            //       data[i].position.long
+            //     ),
+            //     icon: icons[data[i].type].icon,
+            //     map: map
+            //   });
+            // }
+          });
+      });
+
+      // expected output: "123"
+
+      // Distribute values as Red, Amber and Green
+
+      // Update the Map Object with the Marker Positions
+
+      //       for (var i = 0; i < path.length; i=i+20) {
+      //         var latVal = path[i].lat();
+      //         var lngVal = path[i].lng();
+
+      //         let queryString = "/api/safetyscore/" + latVal + "/" + lngVal;
+      //         $.get(queryString).then(function(data, status) {
+      //           // console.log("safetyScore=" + data.safetyScore);
+
+      //           if (data.safetyScore < 50) {
+      //             markerType = "red";
+      //           } else if (data.safetyScore > 50 && data.safetyScore < 80) {
+      //             markerType = "amber";
+      //           } else {
+      //             markerType = "green";
+      //           }
+      //           // console.log("markerType=" + markerType);
+      //             features.push({
+      //               position: { lat: path[i].lat(), long: path[i].lng() },
+      //               type: markerType
+      //             })
+      //         }).then(
+
+      //           function(){
+      //             // console.log(path[i].lat());
+
+      // console.log("features=" + JSON.stringify(features))
+      //           }
+      //         ).then(function(){
+
+      //         })
+      //       }
+
       //   console.log(features[0].position.lat);
       //   console.log("features length=" + features.length);
       // Create markers.
-      for (var i = 0; i < features.length; i++) {
-        var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(
-            features[i].position.lat,
-            features[i].position.long
-          ),
-          icon: icons[features[i].type].icon,
-          map: map
-        });
-      }
     } else {
       alert("Directions query failed: " + status);
     }
