@@ -2,15 +2,7 @@ import React, { Component } from 'react';
 import GlobalContext from './index'
 
 class Global extends Component {
-    state = { 
-        user: {
-            username: '',
-            email: '',
-            avatar: '',
-            uid: ''
-        }
-     }
-
+    
     setEmail = email => {
         this.setState({ email: email})
     }
@@ -21,7 +13,8 @@ class Global extends Component {
                 username: user.username,
                 email: user.email,
                 avatar: user.avatar, 
-                uid: user.uid
+                uid: user.uid,
+                id: user.id
             }
         })
     }

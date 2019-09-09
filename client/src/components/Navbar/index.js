@@ -1,42 +1,58 @@
 import React, { Component } from "react";
-import MenuItem from './MenuItem.js';
-import './navbar.css';
+import SideNav, { NavItem, NavIcon, NavText } from "@trendmicro/react-sidenav";
+import "./navbar.css";
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
-    state = {
-        activeItem: '',
-        activeItemPosition: 0,
-        activeItemColor: '',
-        menuItems: [
-          { text: 'Trips' },
-          { text: 'Map Results' },
-          { text: 'Placeholder' },
-          { text: 'Contact' },
-          { text: 'Logout' },
-        ]
-    }
-    
-    handleClick = activeItem => {
-      return e => {
-        e.preventDefault()
-      
-        this.setState({
-          activeItem,
-          activeItemPosition: document.getElementById(activeItem).offsetTop,
-          activeItemColor: window.getComputedStyle(document.getElementById(activeItem)).getPropertyValue('background-color'),
-        })
-      }
-    }
-    
-    render() {
-      const menuItems = this.state.menuItems.map(item => <MenuItem item={ item } handleClick={ this.handleClick }/>)
-      return (
-        <div className='menu-container'>
-          <span className='menu-item--active' style={{ top: this.state.activeItemPosition, backgroundColor: this.state.activeItemColor }}/>
-          { menuItems }
-        </div>
-      )
-    }
+  render() {
+    return (
+      <SideNav onSelect={selected => {}}>
+        <SideNav.Toggle />
+        <SideNav.Nav>
+          <NavItem eventKey="Planner">
+            <NavIcon></NavIcon>
+            <NavText>
+              <Link to="/">Road Trip Hero</Link>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="results">
+            <NavIcon>
+              <i className="fas fa-road" style={{ fontSize: "30px" }} />
+            </NavIcon>
+            <NavText>
+              <Link to="/planner">Trip Planner</Link>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="Map">
+            <NavIcon>
+              <i
+                className="fas fa-map-marked-alt"
+                style={{ fontSize: "30px" }}
+              />
+            </NavIcon>
+            <NavText>
+              <Link to="/results">Map</Link>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="Contact Us">
+            <NavIcon>
+              <i className="far fa-comments" style={{ fontSize: "30px" }} />
+            </NavIcon>
+            <NavText>
+              <Link to="/">Contact Us</Link>
+            </NavText>
+          </NavItem>
+          <NavItem eventKey="Logout">
+            <NavIcon>
+              <i className="fas fa-power-off" style={{ fontSize: "30px" }}/>
+            </NavIcon>
+            <NavText>
+              <Link to="/">Log Out</Link>
+            </NavText>
+          </NavItem>
+        </SideNav.Nav>
+      </SideNav>
+    );
   }
- export default Navbar;
-  
+}
+export default Navbar;

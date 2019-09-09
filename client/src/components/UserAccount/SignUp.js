@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { withFirebase } from "./Firebase";
-import GlobalContext from "../context/";
-//import Buttons from "../components/Buttons/Buttons";
-import { Col, Row, Container } from "../components/Grid/index.js";
+import { withFirebase } from "../Firebase";
+import GlobalContext from "../../context";
+import Buttons from "../Buttons/Buttons";
+import { Col, Row, Container } from "../Grid/index.js";
 import "./signUp.css";
 import {Animated} from "react-animated-css";
-import SignInWithGoogle from "../components/SignInWithGoogle"
+import SignInWithGoogle from "./SignInWithGoogle"
 
 
 class SignUpBase extends Component {
@@ -39,7 +39,7 @@ class SignUpBase extends Component {
 
       
      
-      <Animated animationIn="bounceInLeft" animationInDelay="1000" animationOut="fadeOut" isVisible={true}>
+      <Animated animationIn="bounceInLeft" animationInDelay={1000} animationOut="fadeOut" isVisible={true}>
       <Container fluid>
         <Row >
           <Col size="md-6" >

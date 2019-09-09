@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
-import { withFirebase } from "./Firebase";
-import GlobalContext from "../context/";
-import Buttons from "../components/Buttons/Buttons";
+import { withFirebase } from "../Firebase";
+import GlobalContext from "../../context/";
+import Buttons from "../Buttons/Buttons";
+import API from "../Utility/API";
 
 class SignInGoogleBase extends Component {
   static contextType = GlobalContext;
@@ -19,9 +20,9 @@ class SignInGoogleBase extends Component {
       .doSignInWithGoogle()
       .then(socialAuthUser => {
         const authUser = {
-          username: socialAuthUser.user.displayName,
+          name: socialAuthUser.user.displayName,
           email: socialAuthUser.user.email,
-          avatar: socialAuthUser.user.photoURL,
+          photoUrl: socialAuthUser.user.photoURL,
           uid: socialAuthUser.user.uid
         };
         return authUser;
@@ -32,9 +33,26 @@ class SignInGoogleBase extends Component {
           .set(authUser)
           .then(() => {
             this.setState({ error: null });
-            this.context.setUser(authUser);
-            this.props.history.push("/planner");
-          }).catch(error => {
+            // make call to backend to get id that makes the link
+            // take the id out the response
+            API.getUser(authUser)
+              .then(res => {
+                console.log(res.data)
+                if (res.data.length) {
+                  const { id } = res.data;
+                  this.context.setUser({ ...authUser, id });
+                  this.props.history.push("/planner");
+                } else {
+                  API.createUser(authUser).then(res => {
+                    const { id } = res.data;
+                    this.context.setUser({ ...authUser, id });
+                    this.props.history.push("/planner");
+                  });
+                }
+              })
+              .catch(err => console.log(err));
+          })
+          .catch(error => {
             this.setState({ error });
           });
       })
@@ -49,10 +67,7 @@ class SignInGoogleBase extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         {/* <button type="submit">Sign In with Google</button> */}
-        <Buttons
-        btnStyle="success"
-                btnName="Sign in with Google"
-        />
+        <Buttons btnStyle="success" btnName="Sign in with Google" />
         {error && <p>{error.message}</p>}
       </form>
     );
