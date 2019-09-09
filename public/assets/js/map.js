@@ -124,7 +124,7 @@ function route() {
       var legs = response.routes[0].legs;
 
       document.getElementById("zipcodes").innerHTML =
-        "<b>zipcodes along route:</b><br>" + JSON.stringify(response.routes[0].legs);
+        "<b>zipcodes along route:</b><br>";
       // Find the Safety Score of the Zip Code and return it
       for (var i = 0; i < path.length; i = i + 20) {
         var latVal = path[i].lat();
@@ -145,17 +145,17 @@ function route() {
         $.get(queryString)
           .then(function(res, status) {
             if (res.safetyScore >= 90) {
-              data.type = "dgreen";
+              data.type = "green";
             } else if (res.safetyScore > 80 && res.safetyScore < 89) {
-              data.type = "bgreen";
+              data.type = "green";
             } else if (res.safetyScore > 60 && res.safetyScore < 79) {
-              data.type = "lamber";
+              data.type = "amber";
             } else if (res.safetyScore > 40 && res.safetyScore < 59) {
-              data.type = "damber";
+              data.type = "amber";
             } else if (res.safetyScore > 20 && res.safetyScore < 39) {
-              data.type = "bred";
+              data.type = "red";
             } else {
-              data.type = "dred";
+              data.type = "red";
             }
           })
           .then(function() {
