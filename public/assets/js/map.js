@@ -22,22 +22,22 @@ var features = [];
 
 var icons = {
   dred: {
-    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056279/Dred.png"
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/c_scale,h_50/v1568056279/Dred.png"
   },
   bred: {
-    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056306/Bred.png"
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/c_scale,h_50/v1568056306/Bred.png"
   },
   damber: {
-    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056315/Damber.png"
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/c_scale,h_50/v1568056315/Damber.png"
   },
   lamber: {
-    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056335/Lamber.png"
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/c_scale,h_50/v1568056335/Lamber.png"
   },
   bgreen: {
-    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056292/Bgreen.png"
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/c_scale,h_50/v1568056292/Bgreen.png"
   },
   dgreen: {
-    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056286/Dgreen.png"
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/c_scale,h_50/v1568056286/Dgreen.png"
   },
   red: {
     icon: "http://maps.google.com/mapfiles/kml/pal4/icon7.png"
@@ -145,17 +145,17 @@ function route() {
         $.get(queryString)
           .then(function(res, status) {
             if (res.safetyScore >= 90) {
-              data.type = "green";
+              data.type = "dgreen";
             } else if (res.safetyScore > 80 && res.safetyScore < 89) {
-              data.type = "green";
+              data.type = "bgreen";
             } else if (res.safetyScore > 60 && res.safetyScore < 79) {
-              data.type = "amber";
+              data.type = "damber";
             } else if (res.safetyScore > 40 && res.safetyScore < 59) {
-              data.type = "amber";
+              data.type = "lamber";
             } else if (res.safetyScore > 20 && res.safetyScore < 39) {
-              data.type = "red";
+              data.type = "bred";
             } else {
-              data.type = "red";
+              data.type = "dred";
             }
           })
           .then(function() {
