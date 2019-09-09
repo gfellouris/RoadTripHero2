@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input,  } from 'reactstrap';
 import "./Forms.css";
+import API from '../Utility/API';
 
 
 export default class Forms extends Component {
@@ -38,6 +39,12 @@ export default class Forms extends Component {
       exampleEndZip: ""
     });
   };
+  postTrips = user => {
+    API.saveTrips(user)
+    .then(res => {
+      this.setState()
+    })
+  }
 
   render() {
     return (
@@ -117,14 +124,7 @@ export default class Forms extends Component {
             </FormGroup>  
           </Col>
         </Row>
-        {/* <Row form>
-          <Col md={6}>
-            <FormGroup>
-              <Label for="exampleStops"className="title">Number of Stops</Label>
-              <Input type="number" name="stops" id="exampleStops"/>
-            </FormGroup>
-          </Col>
-        </Row> */}
+
         <Button className="submit"onClick={this.handleFormSubmit}>Save Your Trip!</Button>
       </Form>
     );
