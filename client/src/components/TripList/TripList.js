@@ -1,5 +1,4 @@
 import React from 'react';
-import { Table } from 'reactstrap';
 import TripCard from "./TripCard.js";
 import Forms from '../Forms/Forms'
 import { Col, Row, Container } from "../Grid/index";

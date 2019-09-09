@@ -51,19 +51,27 @@ export default class Forms extends Component {
           <Col md={6}>
             <FormGroup className="name">
               <Label for="exampleTrip" className="title">Trip Name</Label>
+
               <Input type="text" name="tripName" onChange={this.handleInputChange} id="exampleTrip" placeholder="Your Trip Name:"/>
+
             </FormGroup>
           </Col>
         </Row>
         <FormGroup>
           <Label for="exampleStart" className="title">Start Point</Label>
+
           <Input type="text" name="startPoint" onChange={this.handleInputChange} id="exampleStart" placeholder="1234 Main St"/>
+
+         
         </FormGroup>
         <Row form>
           <Col md={6}>
             <FormGroup>
               <Label for="exampleCity" className="title">City</Label>
+
               <Input type="text" name="startPointCity" onChange={this.handleInputChange} id="exampleCity" />
+
+            
             </FormGroup>
           </Col>
           <Col md={2}>
