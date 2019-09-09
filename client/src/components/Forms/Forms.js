@@ -25,25 +25,6 @@ export default class Forms extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-<<<<<<< HEAD
-    this.setState({
-      exampleTrip: "",
-      exampleStart: "",
-      exampleCity: "",
-      exampleState: "",
-      exampleZip: "",
-      exampleEnd: "",
-      exampleEndCity: "",
-      exampleEndState: "",
-      exampleEndZip: ""
-    });
-  };
-  postTrips = user => {
-    API.saveTrips(user)
-    .then(res => {
-      this.setState()
-    })
-=======
 
     const origin = `${this.state.startPoint} ${this.state.startPointCity} ${this.state.startPointState} ${this.state.startPointZip}`;
     const destination =`${this.state.endPoint} ${this.state.endPointCity} ${this.state.endPointState} ${this.state.endPointZip}`
@@ -60,7 +41,6 @@ export default class Forms extends Component {
       this.props.loadTrips(this.props.user)
     }).catch(err => console.log(err))
 
->>>>>>> fbff6533a46c9012fde24267acb74533f4a2c6ba
   }
 
   render() {
@@ -131,10 +111,6 @@ export default class Forms extends Component {
             </FormGroup>  
           </Col>
         </Row>
-<<<<<<< HEAD
-
-        <Button className="submit"onClick={this.handleFormSubmit}>Save Your Trip!</Button>
-=======
         <Row form>
           <Col md={4}>
             <FormGroup>
@@ -144,7 +120,6 @@ export default class Forms extends Component {
           </Col>
         </Row>
         <Button className="submit">Save Your Trip!</Button>
->>>>>>> fbff6533a46c9012fde24267acb74533f4a2c6ba
       </Form>
     );
   }
