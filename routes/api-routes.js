@@ -70,6 +70,7 @@ module.exports = function(app) {
 
   app.delete("/api/deletetripplan/:id", function(req, res) {
     var condition = "id = " + req.params.id;
+    console.log(req.params.id)
     ormQueries.deleteTripPlan(condition, function(result) {
       if (result.affectedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
