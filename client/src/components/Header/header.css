@@ -1,0 +1,25 @@
+.jumbotron {
+    background-image: url(https://res.cloudinary.com/delacue/image/upload/v1568044549/headerABackgroundLarge_bxquor.jpg);
+    background-size: cover;
+    padding-bottom: 5px;
+    text-align: center;
+    border: #000000;
+    border: solid;
+    border-radius: 25px;
+}
+
+.display-3 {
+    background: #15561e;
+    text-align: center;
+    display: inline;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.lead {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 35px;
+}

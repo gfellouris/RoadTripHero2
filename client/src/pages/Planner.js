@@ -1,48 +1,32 @@
-import React, { Component } from "react";
-import Form from "../components/Forms/Forms.js";
-import TripList from "../components/TripList/TripList.js";
-import { Col, Row, Container } from "../components/Grid/index.js";
+import React, { Component } from 'react';
+import TripList from '../components/TripList/TripList.js';
+import { Col, Row, Container } from '../components/Grid/index.js';
+import AuthUserContext from '../components/Session/context';
+import { withAuthorization } from '../components/Session/index';
+import Header from '../components/Header/Header.js';
+import GlobalContext from '../context/';
+import Navbar from '../components/Navbar/index.js';
 
-import GlobalContext from '../context/'
-import Navbar from '../components/Navbar/index.js'
-
-import "../pages/planner.css"
+import '../pages/planner.css';
 
 class Planner extends Component {
-    static contextType = GlobalContext
+  static contextType = GlobalContext;
 
-    render() {
-        // console.log(this.GlobalContext.user.uid)
-        return  (
-            <>
-            <Navbar/>
-            <Container fluid>
-              <Row >
-              <Col size="md-1" >
-                        
-                    </Col>
-                    <Col size="md-8" >
-                        <Form >
-                        </Form>
-                    </Col>
-                    <Col size="md-3">
-                        <TripList
-                        user={this.context.user} > 
-                        </TripList>
-                    </Col>
-                </Row>
-            </Container>
-            {/* <Container fluid>
-                <Row >
-                    <Col size="md-6">
-                        <TripList> 
-                        </TripList>
-                    </Col>
-                </Row>
-            </Container> */}
-            </>
-        )
-    }
-};
+  render() {
+    // console.log(this.GlobalContext.user.uid)
+    return (
+      <>
+        <Header />
+        <Navbar />
+        <Container fluid>
+          <TripList user={this.context.user}></TripList>
+        </Container>
+      </>
+    );
+  }
+}
 
-export default Planner;
+//condition for authuser check to restrict routes. If user isn't authorized, planner is off limits
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(Planner);

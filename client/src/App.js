@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import Global from "./context/Global";
-import Landing from "./pages/Landing";
-import Planner from "./pages/Planner";
-import Results from "./pages/Results.js"
-import VanessaSample from "./pages/VanessaSample.js"
-import "./App.css";
+import React, { Component } from 'react';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import { withAuthentication } from './components/Session/index';
+import Global from './context/Global';
+import Landing from './pages/Landing';
+import Planner from './pages/Planner';
+import Results from './pages/Results.js';
+import VanessaSample from './pages/VanessaSample.js';
+import './App.css';
 
 class App extends Component {
-  state = { };
+  state = {};
 
   // make function to update state here and pass down the functions and state value as props so
   // so that data is available everywhere in the app
@@ -21,12 +22,12 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/planner" component={Planner} />
             <Route exact path="/results" component={Results} />
-            <Route exact path="/sampleVLD" component={VanessaSample}/>
+            <Route exact path="/sampleVLD" component={VanessaSample} />
           </Switch>
         </Router>
       </Global>
     );
   }
 }
- 
-export default App;
+
+export default withAuthentication(App);

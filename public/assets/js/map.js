@@ -17,10 +17,28 @@ var boxes = null;
 var zipcodes = [];
 var infowindow = new google.maps.InfoWindow();
 var markerType = "amber";
-
+var features = [];
 // Marker icons used for path
-// RAG Car images: http://gmap.pw/api_v3/makerchange/googleimg/maps-gc-pal4/
+
 var icons = {
+  dred: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056279/Dred.png"
+  },
+  bred: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056306/Bred.png"
+  },
+  damber: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056315/Damber.png"
+  },
+  lamber: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056335/Lamber.png"
+  },
+  bgreen: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056292/Bgreen.png"
+  },
+  dgreen: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056286/Dgreen.png"
+  },
   red: {
     icon: "http://maps.google.com/mapfiles/kml/pal4/icon7.png"
   },
@@ -29,20 +47,15 @@ var icons = {
   },
   green: {
     icon: "http://maps.google.com/mapfiles/kml/pal4/icon54.png"
-  },
-  parking: {
-    icon: "http://maps.google.com/mapfiles/kml/pal3/icon59.png"
-  },
-  library: {
-    icon: "http://maps.google.com/mapfiles/kml/pal3/icon53.png"
-  },
-  info: {
-    icon: "http://maps.google.com/mapfiles/kml/pal3/icon33.png"
   }
 };
 
 function initialize() {
   // Default the map view to the continental U.S.
+//   let queryTrip = "/api/gettripplan/1";
+
+// $.get(queryTrip)
+//   .then(function(res, status) {
   var mapOptions = {
     center: new google.maps.LatLng(40, -80.5),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -105,54 +118,59 @@ function route() {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsRenderer.setDirections(response);
 
+      
       zipcodes = [];
       var path = response.routes[0].overview_path;
       var legs = response.routes[0].legs;
 
       document.getElementById("zipcodes").innerHTML =
         "<b>zipcodes along route:</b><br>";
-      for (var i = 0; i < polyline.getPath().getLength(); i++) {
-        //  queryForZip(polyline.getPath().getAt(i));
-      }
-
-      // build lat and lng path to display markers
-      var features = [];
-
-      for (var i = 0; i < path.length; i = i + 50) {
+      // Find the Safety Score of the Zip Code and return it
+      for (var i = 0; i < path.length; i = i + 20) {
         var latVal = path[i].lat();
         var lngVal = path[i].lng();
 
-        let queryString = "/api/safetyscore/" + latVal + "/" + lngVal;
-        $.get(queryString, function(data, status) {
-          console.log("safetyScore=" + data.safetyScore);
-          if (data.safetyScore < 50) {
-            markerType = "red";
-          } else if (data.safetyScore > 50 && data.safetyScore < 80) {
-            markerType = "amber";
-          } else {
-            markerType = "green";
-          }
-          console.log("markerType=" + markerType);
-        }).then(
-          features.push({
-            position: { lat: path[i].lat(), long: path[i].lng() },
-            type: markerType
-          })
-        );
-      }
-      //   console.log(features[0].position.lat);
-      //   console.log("features length=" + features.length);
-      // Create markers.
-      for (var i = 0; i < features.length; i++) {
-        var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(
-            features[i].position.lat,
-            features[i].position.long
-          ),
-          icon: icons[features[i].type].icon,
-          map: map
+        features.push({
+          position: { lat: latVal, long: lngVal }
+          // type: markerType
         });
       }
+
+      // console.log(features);
+
+      features.forEach(function(data) {
+        let queryString =
+          "/api/safetyscore/" + data.position.lat + "/" + data.position.long;
+
+        $.get(queryString)
+          .then(function(res, status) {
+            if (res.safetyScore >= 90) {
+              data.type = "green";
+            } else if (res.safetyScore > 80 && res.safetyScore < 89) {
+              data.type = "green";
+            } else if (res.safetyScore > 60 && res.safetyScore < 79) {
+              data.type = "amber";
+            } else if (res.safetyScore > 40 && res.safetyScore < 59) {
+              data.type = "amber";
+            } else if (res.safetyScore > 20 && res.safetyScore < 39) {
+              data.type = "red";
+            } else {
+              data.type = "red";
+            }
+          })
+          .then(function() {
+            console.log(data.type);
+
+            var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(
+                data.position.lat,
+                data.position.long
+              ),
+              icon: icons[data.type].icon,
+              map: map
+            });
+          });
+      });
     } else {
       alert("Directions query failed: " + status);
     }
