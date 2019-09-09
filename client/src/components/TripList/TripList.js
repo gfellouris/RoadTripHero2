@@ -13,6 +13,7 @@ export default class TripList extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.user !== this.props.user) {
       this.loadTrips(this.props.user);
+
     }
   }
 
@@ -24,6 +25,16 @@ export default class TripList extends React.Component {
       })
       .catch(err => console.log(err));
   };
+
+  handleDeleteTrip = id =>{
+    
+
+    API.removeTrip(id)
+      .then(res =>{
+        console.log(res.data);
+      })
+      .catch(err => console.log(err));
+  }
 
   render() {
 
@@ -47,6 +58,7 @@ export default class TripList extends React.Component {
               origin={savedTrips.origin}
               destination={savedTrips.destination}
               numberOfStops={savedTrips.numberOfStops}
+              handleDeleteTrip={this.handleDeleteTrip}
             />
           ))}
         </Col>

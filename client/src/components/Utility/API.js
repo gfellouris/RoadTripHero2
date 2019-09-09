@@ -16,5 +16,9 @@ export default {
 
     createUser: function (user) {
         return axios.post("/api/insertuser", user);
+    },
+    
+    removeTrip: function (id) {
+        return axios.delete("/api/deletetripplan/" + id )
     }
 }
