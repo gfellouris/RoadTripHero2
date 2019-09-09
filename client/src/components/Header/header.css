@@ -3,8 +3,9 @@
     background-size: cover;
     padding-bottom: 5px;
     text-align: center;
-    border-bottom: #000000;
-    border-bottom: solid;
+    border: #000000;
+    border: solid;
+    border-radius: 25px;
 }
 
 .display-3 {

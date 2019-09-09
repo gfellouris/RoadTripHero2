@@ -65,12 +65,7 @@ class SignUpBase extends Component {
                 onChange={this.handleInputChange}
               />
 
-              <Buttons
-                btnStyle="success"
-                btnName="Sign Up"
-                isInvalid={isInvalid}
-                onClickEvent={this.signUpUser}
-              />
+            
               
               <SignInWithGoogle/>
               {/* <Buttons  btnStyle="success"
