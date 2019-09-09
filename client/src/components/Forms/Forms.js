@@ -5,28 +5,27 @@ import API from '../Utility/API';
 
 
 export default class Forms extends Component {
-  state ={
-    exampleTrip: "",
-    exampleStart: "",
-    exampleCity: "",
-    exampleState: "",
-    exampleZip: 0,
-    exampleEnd: "",
-    exampleEndCity: "",
-    exampleEndState: "",
-    exampleEndZip: 0,
-  };
-
+  state = {
+    tripName: '',
+    startPoint: '',
+    startPointCity: '',
+    startPointState: '',
+    startPointZip: '',
+    endPoint: '',
+    endPointCity: '',
+    endPointState: '',
+    endPointZip: '',
+    numberOfStops: ''
+  }
+ 
   handleInputChange = event => {
-    const {name,value} = event.target;
+    const {name, value} = event.target
+    this.setState({ [name]: value })
+  }
 
-    this.setState({
-      [name]: value
-    });
-  };
-  
-  handleFormSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
+<<<<<<< HEAD
     this.setState({
       exampleTrip: "",
       exampleStart: "",
@@ -44,88 +43,108 @@ export default class Forms extends Component {
     .then(res => {
       this.setState()
     })
+=======
+
+    const origin = `${this.state.startPoint} ${this.state.startPointCity} ${this.state.startPointState} ${this.state.startPointZip}`;
+    const destination =`${this.state.endPoint} ${this.state.endPointCity} ${this.state.endPointState} ${this.state.endPointZip}`
+    
+    const objectToSend = {
+      userid: this.props.user.id,
+      tripname: this.state.tripName,
+      origin: origin,
+      destination: destination,
+      numberofstops: parseInt(this.state.numberOfStops)
+    }
+
+    API.saveTrip(objectToSend).then(res => {
+      this.props.loadTrips(this.props.user)
+    }).catch(err => console.log(err))
+
+>>>>>>> fbff6533a46c9012fde24267acb74533f4a2c6ba
   }
 
   render() {
     return (
-      <Form className="tripInput">
+      <Form className="tripInput" onSubmit={this.handleSubmit}>
         <h1>Plan Your Trip Here!</h1>
         <Row form>
           <Col md={6}>
             <FormGroup className="name">
               <Label for="exampleTrip" className="title">Trip Name</Label>
-              <Input type="text" name="tripName" id="exampleTrip" placeholder="Your Trip Name:" 
-              value={this.state.exampleTrip}
-              onChange={this.handleInputChange}/>
+
+              <Input type="text" name="tripName" onChange={this.handleInputChange} id="exampleTrip" placeholder="Your Trip Name:"/>
+
             </FormGroup>
           </Col>
         </Row>
         <FormGroup>
           <Label for="exampleStart" className="title">Start Point</Label>
-          <Input type="text" name="startPoint" id="exampleStart" placeholder="1234 Main St"
-          value={this.state.exampleStart}
-          onChange={this.handleInputChange}/>
+
+          <Input type="text" name="startPoint" onChange={this.handleInputChange} id="exampleStart" placeholder="1234 Main St"/>
+
+         
         </FormGroup>
         <Row form>
           <Col md={6}>
             <FormGroup>
               <Label for="exampleCity" className="title">City</Label>
-              <Input type="text" name="city" id="exampleCity"
-              value={this.state.exampleCity}
-              onChange={this.handleInputChange}/>
+
+              <Input type="text" name="startPointCity" onChange={this.handleInputChange} id="exampleCity" />
+
+            
             </FormGroup>
           </Col>
           <Col md={2}>
             <FormGroup>
               <Label for="exampleState" className="title">State</Label>
-              <Input type="text" name="state" id="exampleState"
-              value={this.state.exampleState}
-              onChange={this.handleInputChange}/>
+              <Input type="text" name="startPointState" onChange={this.handleInputChange} id="exampleState" />
             </FormGroup>
           </Col>
           <Col md={4}>
             <FormGroup>
               <Label for="exampleZip" className="title">Zip</Label>
-              <Input type="text" name="zip" id="exampleZip"
-              value={this.state.exampleZip}
-              onChange={this.handleInputChange}/>
+              <Input type="text" name="startPointZip" onChange={this.handleInputChange} id="exampleZip" />
             </FormGroup>  
           </Col>
         </Row>
         <FormGroup>
           <Label for="exampleEnd" className="title">End Point</Label>
-          <Input type="text" name="endPoint" id="exampleEnd" placeholder="4567 Main St"
-          value={this.state.exampleEnd}
-          onChange={this.handleInputChange}/>
+          <Input type="text" name="endPoint" onChange={this.handleInputChange} id="exampleEnd" placeholder="4567 Main St" />
         </FormGroup>
         <Row form>
           <Col md={6}>
             <FormGroup>
               <Label for="exampleEndCity" className="title">City</Label>
-              <Input type="text" name="city" id="exampleCity"
-              value={this.state.exampleEndCity}
-              onChange={this.handleInputChange}/>
+              <Input type="text" name="endPointCity" onChange={this.handleInputChange} id="exampleCity" />
             </FormGroup>
           </Col>
           <Col md={2}>
             <FormGroup>
               <Label for="exampleEndState" className="title">State</Label>
-              <Input type="text" name="state" id="exampleState"
-              value={this.state.exampleEndState}
-              onChange={this.handleInputChange}/>
+              <Input type="text" name="endPointState" onChange={this.handleInputChange} id="exampleState" />
             </FormGroup>
           </Col>
           <Col md={4}>
             <FormGroup>
               <Label for="exampleEndZip" className="title">Zip</Label>
-              <Input type="text" name="zip" id="exampleZip"
-              value={this.state.exampleEndZip}
-              onChange={this.handleInputChange}/>
+              <Input type="text" name="endPointZip" onChange={this.handleInputChange} id="exampleZip" />
             </FormGroup>  
           </Col>
         </Row>
+<<<<<<< HEAD
 
         <Button className="submit"onClick={this.handleFormSubmit}>Save Your Trip!</Button>
+=======
+        <Row form>
+          <Col md={4}>
+            <FormGroup>
+              <Label for="exampleStops"className="title">Stops</Label>
+              <Input onChange={this.handleInputChange} type="number" name="numberOfStops" id="exampleStops"/>
+            </FormGroup>
+          </Col>
+        </Row>
+        <Button className="submit">Save Your Trip!</Button>
+>>>>>>> fbff6533a46c9012fde24267acb74533f4a2c6ba
       </Form>
     );
   }
