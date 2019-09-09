@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Form from "../components/Forms/Forms.js";
 import TripList from "../components/TripList/TripList.js";
 import { Col, Row, Container } from "../components/Grid/index.js";
-
+import Header from '../components/Header/Header.js'
 import GlobalContext from '../context/'
 import Navbar from '../components/Navbar/index.js'
 
@@ -15,7 +15,9 @@ class Planner extends Component {
         // console.log(this.GlobalContext.user.uid)
         return  (
             <>
+            <Header/>
             <Navbar/>
+           
             <Container fluid>
               <Row >
               <Col size="md-1" >

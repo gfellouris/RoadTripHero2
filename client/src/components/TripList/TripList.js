@@ -1,5 +1,4 @@
 import React from 'react';
-import { Table } from 'reactstrap';
 import TripCard from "./TripCard.js";
 import API from "../Utility/API.js";
 

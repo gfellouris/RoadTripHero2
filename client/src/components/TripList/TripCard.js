@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button, CardHeader, CardFooter, CardBody,
-  CardTitle, CardText } from 'reactstrap';
+  CardText } from 'reactstrap';
 
 const TripCard = (props) => {
   return (
