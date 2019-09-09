@@ -3,6 +3,8 @@
     background-size: cover;
     padding-bottom: 5px;
     text-align: center;
+    border-bottom: #000000;
+    border-bottom: solid;
     /* margin-left: 5%; */
 }
 
@@ -14,4 +16,11 @@
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.lead {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 35px;
 }
