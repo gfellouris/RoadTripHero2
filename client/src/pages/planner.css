@@ -6,18 +6,28 @@ body {
 .card {
     border: solid;
     border-color: #3b3b3b;
-    font-family: 'Overpass', sans-serif;
+    /* font-family: 'Overpass', sans-serif; */
+    /* font-family: 'Merriweather', serif; */
+/* font-family: 'Roboto', sans-serif; */
+/* font-family: 'Josefin Sans', sans-serif; */
 }
 
 .card-header {
     background: #388e3c;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
 }
 
 .card-body {
     color: black;
-    font-weight: 600;
+    font-weight: 200;
     background:  #CDE1B0;
-    background-image: url(https://res.cloudinary.com/delacue/image/upload/v1567998993/windyRoad_h2w8jx.png);
+    background-image: url(https://res.cloudinary.com/delacue/image/upload/o_42/v1567998993/windyRoad_h2w8jx.png);
+    font-size: 16px;
     background-size: cover;
-    font-family: 'Overpass', sans-serif;
+    /* font-family: 'Overpass', sans-serif; */
+     font-family: 'Merriweather', serif;
+
+    
 }
