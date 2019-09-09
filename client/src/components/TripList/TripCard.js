@@ -18,7 +18,7 @@ const TripCard = (props) => {
           
           <Button>Go to Map</Button>
         </CardBody>
-        <CardFooter>number of stops: ???</CardFooter>
+        <CardFooter>number of stops: {props.numberOfStops}</CardFooter>
       </Card>
     </div>
   );
