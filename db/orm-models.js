@@ -26,6 +26,13 @@ var ormQueries = {
       cb(res);
     });
   },
+  
+  getTripPlan: function(tripId, cb) {
+    // tableInput, colToSearch, valOfCol, cb
+    orm.getTripPlan(tripId, function(res) {
+      cb(res);
+    });
+  },
 
   deleteTripPlan: function(condition, cb) {
     orm.deleteTripPlan("tripPlans", condition, function(res) {

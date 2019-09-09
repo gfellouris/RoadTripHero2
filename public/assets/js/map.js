@@ -19,8 +19,26 @@ var infowindow = new google.maps.InfoWindow();
 var markerType = "amber";
 var features = [];
 // Marker icons used for path
-// RAG Car images: http://gmap.pw/api_v3/makerchange/googleimg/maps-gc-pal4/
+
 var icons = {
+  dred: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056279/Dred.png"
+  },
+  bred: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056306/Bred.png"
+  },
+  damber: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056315/Damber.png"
+  },
+  lamber: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056335/Lamber.png"
+  },
+  bgreen: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056292/Bgreen.png"
+  },
+  dgreen: {
+    icon: "https://res.cloudinary.com/dvustpvvn/image/upload/v1568056286/Dgreen.png"
+  },
   red: {
     icon: "http://maps.google.com/mapfiles/kml/pal4/icon7.png"
   },
@@ -29,20 +47,15 @@ var icons = {
   },
   green: {
     icon: "http://maps.google.com/mapfiles/kml/pal4/icon54.png"
-  },
-  parking: {
-    icon: "http://maps.google.com/mapfiles/kml/pal3/icon59.png"
-  },
-  library: {
-    icon: "http://maps.google.com/mapfiles/kml/pal3/icon53.png"
-  },
-  info: {
-    icon: "http://maps.google.com/mapfiles/kml/pal3/icon33.png"
   }
 };
 
 function initialize() {
   // Default the map view to the continental U.S.
+//   let queryTrip = "/api/gettripplan/1";
+
+// $.get(queryTrip)
+//   .then(function(res, status) {
   var mapOptions = {
     center: new google.maps.LatLng(40, -80.5),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -105,20 +118,14 @@ function route() {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsRenderer.setDirections(response);
 
+      
       zipcodes = [];
       var path = response.routes[0].overview_path;
       var legs = response.routes[0].legs;
 
       document.getElementById("zipcodes").innerHTML =
-        "<b>zipcodes along route:</b><br>";
-      for (var i = 0; i < polyline.getPath().getLength(); i++) {
-        //  queryForZip(polyline.getPath().getAt(i));
-      }
-
-      // build lat and lng path to display markers
-
+        "<b>zipcodes along route:</b><br>" + JSON.stringify(response.routes[0].legs);
       // Find the Safety Score of the Zip Code and return it
-
       for (var i = 0; i < path.length; i = i + 20) {
         var latVal = path[i].lat();
         var lngVal = path[i].lng();
@@ -137,81 +144,33 @@ function route() {
 
         $.get(queryString)
           .then(function(res, status) {
-            if (res.safetyScore < 50) {
-              data.type = "red";
-            } else if (res.safetyScore > 50 && res.safetyScore < 80) {
-              data.type = "amber";
+            if (res.safetyScore >= 90) {
+              data.type = "dgreen";
+            } else if (res.safetyScore > 80 && res.safetyScore < 89) {
+              data.type = "bgreen";
+            } else if (res.safetyScore > 60 && res.safetyScore < 79) {
+              data.type = "lamber";
+            } else if (res.safetyScore > 40 && res.safetyScore < 59) {
+              data.type = "damber";
+            } else if (res.safetyScore > 20 && res.safetyScore < 39) {
+              data.type = "bred";
             } else {
-              data.type = "green";
+              data.type = "dred";
             }
           })
           .then(function() {
             console.log(data.type);
 
-              var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(
-                  data.position.lat,
-                  data.position.long
-                ),
-                icon: icons[data.type].icon,
-                map: map
-              });
-              
-
-            // for (var i = 0; i < data.length; i++) {
-            //   var marker = new google.maps.Marker({
-            //     position: new google.maps.LatLng(
-            //       data[i].position.lat,
-            //       data[i].position.long
-            //     ),
-            //     icon: icons[data[i].type].icon,
-            //     map: map
-            //   });
-            // }
+            var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(
+                data.position.lat,
+                data.position.long
+              ),
+              icon: icons[data.type].icon,
+              map: map
+            });
           });
       });
-
-      // expected output: "123"
-
-      // Distribute values as Red, Amber and Green
-
-      // Update the Map Object with the Marker Positions
-
-      //       for (var i = 0; i < path.length; i=i+20) {
-      //         var latVal = path[i].lat();
-      //         var lngVal = path[i].lng();
-
-      //         let queryString = "/api/safetyscore/" + latVal + "/" + lngVal;
-      //         $.get(queryString).then(function(data, status) {
-      //           // console.log("safetyScore=" + data.safetyScore);
-
-      //           if (data.safetyScore < 50) {
-      //             markerType = "red";
-      //           } else if (data.safetyScore > 50 && data.safetyScore < 80) {
-      //             markerType = "amber";
-      //           } else {
-      //             markerType = "green";
-      //           }
-      //           // console.log("markerType=" + markerType);
-      //             features.push({
-      //               position: { lat: path[i].lat(), long: path[i].lng() },
-      //               type: markerType
-      //             })
-      //         }).then(
-
-      //           function(){
-      //             // console.log(path[i].lat());
-
-      // console.log("features=" + JSON.stringify(features))
-      //           }
-      //         ).then(function(){
-
-      //         })
-      //       }
-
-      //   console.log(features[0].position.lat);
-      //   console.log("features length=" + features.length);
-      // Create markers.
     } else {
       alert("Directions query failed: " + status);
     }

@@ -78,6 +78,18 @@ var orm = {
     });
   },
 
+  getTripPlan: function(valOfCol, cb) {
+    var queryString = "SELECT *";
+    queryString += " FROM tripPlans";
+    queryString += " WHERE id = ?";
+
+    connection.query(queryString, [valOfCol], function(err, result) {
+      if (err) throw err;
+      // console.log(result);
+      cb(result);
+    });
+  },
+
   deleteTripPlan: function(table, condition, cb) {
     var queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
