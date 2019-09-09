@@ -9,7 +9,6 @@ import Navbar from '../components/Navbar/index.js'
 import "../pages/planner.css"
 
 class Planner extends Component {
-
     static contextType = GlobalContext
 
     render() {
@@ -18,14 +17,15 @@ class Planner extends Component {
             <>
             <Navbar/>
             <Container fluid>
-                <h1>{JSON.stringify(this.context.user)}</h1>
-                <Row >
-
-                    <Col size="md-6" >
+              <Row >
+              <Col size="md-1" >
+                        
+                    </Col>
+                    <Col size="md-8" >
                         <Form >
                         </Form>
                     </Col>
-                    <Col size="md-6">
+                    <Col size="md-3">
                         <TripList
                         user={this.context.user} > 
                         </TripList>
