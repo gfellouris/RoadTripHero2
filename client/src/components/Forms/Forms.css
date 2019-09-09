@@ -2,7 +2,7 @@
     background-color: #388e3c;
     margin-top: 100px;
     padding: 20px 20px 10px 20px;
-    border: solid white 2px;
+    border: solid #263238 2px;
     border-radius: 25px;
     font-family: 'Overpass', sans-serif;
     text-align: center;
@@ -19,7 +19,7 @@ h1{
     font-weight: 800;
 }
 .border{
-    border: solid white 2px;
+    border: solid #263238 2px;
 }
 .title {
     color: white;
