@@ -10,7 +10,7 @@ class Navbar extends Component {
         <SideNav.Toggle />
         <SideNav.Nav>
           <NavItem eventKey="Planner">
-            <NavIcon></NavIcon>
+            <NavIcon><img src="https://res.cloudinary.com/delacue/image/upload/v1567997738/GoldRTHbadge_gr.png" alt="RTH badge" style={{ width: "40px", height: "auto" }}/></NavIcon>
             <NavText>
               <Link to="/">Road Trip Hero</Link>
             </NavText>

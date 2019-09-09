@@ -1,8 +1,9 @@
-/* body {
+body {
+    background-image: url(https://res.cloudinary.com/delacue/image/upload/v1567529037/RTHbackgroundLarge_wofnlp.jpg);
  background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-} */
+}
 .videoTag {
     height: auto;
     width: 100%;

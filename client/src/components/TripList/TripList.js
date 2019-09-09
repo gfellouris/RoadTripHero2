@@ -1,45 +1,47 @@
 import React from 'react';
 import { Table } from 'reactstrap';
-import TripRow from "./index.js";
+import TripCard from "./TripCard.js";
 import API from "../Utility/API.js";
-import GlobalContext from '../../context/index.js';
-
 
 export default class TripList extends React.Component {
-    static contextType = GlobalContext;
 
     state = {
-        tripPlans: []
+        savedTrips: []
     };
 
-    componentDidMount() {
-        this.loadTrips();
-    }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.user !== this.props.user) {
+          this.loadTrips(this.props.user);
+        }
+      }
 
-    loadTrips = () => {
-        API.getTrips(this.context.user)
-          .then(res => this.setState({ tripPlans: res.data }))
+      loadTrips = user => {
+        API.getTrips(user)
+          .then(res => {
+            console.log(res.data);
+            this.setState({ savedTrips: res.data });
+          })
           .catch(err => console.log(err));
       };
-    render() {
-        console.log(this.context.user)
+    
+      render() {
+     
+        console.log(this.state.savedTrips);
+    
+
+   
         return (
-            <Table responsive>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Saved Trips</th>
-                    </tr>
-                </thead>
-                {this.state.tripPlans.map(tripPlans => (
-                    <TripRow
-                        id={tripPlans.id}
-                        tripName={tripPlans.tripName}
-                        origin={tripPlans.origin}
-                        destination={tripPlans.destination}
+            <div>
+                
+                {this.state.savedTrips.map(savedTrips => (
+                    <TripCard
+                        id={savedTrips.id}
+                        tripName={savedTrips.tripName}
+                        origin={savedTrips.origin}
+                        destination={savedTrips.destination}
                     />
                 ))}
-            </Table>
+           </div>
         );
     }
 }
