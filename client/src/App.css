@@ -1,5 +1,14 @@
 .leaflet-container {
-    height: 400px;
+    height: 600px;
     width: 100%;
+    max-width: 600px;
+    border: solid;
+    border-radius: 25px;
+    border: black;
+
+  }
+
+  .map {
+    text-align: center !important;
   }
   
