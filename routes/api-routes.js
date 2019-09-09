@@ -68,6 +68,18 @@ module.exports = function(app) {
     });
   });
 
+    // ============ Get all trip plans by user items ============
+    app.get("/api/gettripplan/:tripid", function(req, resExpress) {
+      tripId = req.params.tripid;
+      console.log("condition hit!")
+      console.log(tripId)
+      console.log(req.params.tripid)
+      ormQueries.getTripPlan(tripId, function(data) {
+        console.log(data);
+        resExpress.json(data);
+      });
+    });
+  
   app.delete("/api/deletetripplan/:id", function(req, res) {
     var condition = "id = " + req.params.id;
     console.log(req.params.id)
