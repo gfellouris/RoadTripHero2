@@ -2,25 +2,29 @@
     background-color: #388e3c;
     margin-top: 100px;
     padding: 20px 20px 10px 20px;
-    border: solid white 2px;
+    border: solid #263238 2px;
     border-radius: 25px;
     font-family: 'Overpass', sans-serif;
     text-align: center;
-    max-width: 400px;
+    max-width: 500px;
     
 }
 h1{
     color: white;
     border: solid white 2px;
     border-radius: 25px;
-    font-size: 60px;
+    font-size: 30px;
+    padding: 10px 10px 10px 10px;
+    text-shadow: 2px 2px 4px #000000;
+    font-weight: 800;
 }
 .border{
-    border: solid white 2px;
+    border: solid #263238 2px;
 }
 .title {
     color: white;
-    font-size: 25px;
+    font-size: 22px;
+    text-shadow: 2px 2px 4px #000000;
 }
 /* .name{
     margin: 0 auto;
@@ -31,13 +35,14 @@ h1{
     font-size: 25px;
     border: solid white 2px;
     border-radius: 25px;
-    
+    text-shadow: 2px 2px 4px #000000;
     margin-bottom: 20px;
 
 }
 #exampleTrip, #exampleStart, #exampleCity, #exampleState, #exampleZip, #exampleEnd, #exampleEndCity, #exampleEndState, #exampleEndZip{
     border: solid white 2px;
     border-radius: 25px;
+    
 }
 #exampleStart{
     border: solid white 2px;
