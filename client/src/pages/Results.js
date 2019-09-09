@@ -1,4 +1,25 @@
+
+// import React from 'react';
+// import AuthUserContext from '../components/Session/context';
+// import { withAuthorization } from '../components/Session/index';
+// import LeafletMap from '../components/Directions/LeafletMap';
+
+// function Results() {
+//   return (
+//     <div>
+//       <LeafletMap />
+//     </div>
+//   );
+// }
+
+// //condition for authuser check to restrict routes. If user isn't authorized, results is off limits
+// const condition = authUser => !!authUser;
+
+// export default withAuthorization(condition)(Results);
+
 import React, { Component } from "react";
+import AuthUserContext from '../components/Session/context';
+import { withAuthorization } from '../components/Session/index';
 import TripList from "../components/TripList/TripList.js";
 import { Col, Row, Container } from "../components/Grid/index.js";
 import Header from '../components/Header/Header.js'
@@ -40,5 +61,6 @@ class Results extends Component {
         )
     }
 };
+const condition = authUser => !!authUser;
 
-export default Results;
+export default withAuthorization(condition)(Results);

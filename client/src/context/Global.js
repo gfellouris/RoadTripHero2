@@ -3,8 +3,8 @@ import GlobalContext from "./index";
 import API from "../components/Utility/API";
 
 class Global extends Component {
-  state = {
-    user: {
+    state = {
+      user: {
       name: "",
       email: "",
       photoUrl: "",
