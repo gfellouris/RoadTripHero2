@@ -26,13 +26,14 @@ export default class Forms extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const origin = `${this.state.startPoint}, $`
+    const origin = `${this.state.startPoint} ${this.state.startPointCity} ${this.state.startPointState} ${this.state.startPointZip}`;
+    const destination =`${this.state.endPoint} ${this.state.endPointCity} ${this.state.endPointState} ${this.state.endPointZip}`
     
     const objectToSend = {
       userid: this.props.user.id,
       tripname: this.state.tripName,
-      origin: this.state.startPoint,
-      destination: this.state.endPoint,
+      origin: origin,
+      destination: destination,
       numberofstops: parseInt(this.state.numberOfStops)
     }
 
