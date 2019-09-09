@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SignUp from "../components/UserAccount/SignUp";
-import SignInWithGoogle from '../components/UserAccount/SignInWithGoogle' 
+// import SignInWithGoogle from '../components/UserAccount/SignInWithGoogle' 
 import GlobalContext from '../context';
 import './landing.css';
 

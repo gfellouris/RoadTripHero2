@@ -17,7 +17,7 @@ body {
 
 /*! react-sidenav v0.4.5 | (c) 2019 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
 .sidenav---sidenav---_2tBP {
-    position: absolute;
+    position: fixed !important;
     top: 0;
     bottom: 0;
     left: 0;
