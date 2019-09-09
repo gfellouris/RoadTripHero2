@@ -6,21 +6,31 @@ body {
 .card {
     border: solid;
     border-color: #3b3b3b;
-    /* font-family: 'Overpass', sans-serif; */
+    text-align: center;
+    border-radius: 25px;
+    font-family: 'Overpass', sans-serif;
+    width: 300px;
+    margin-bottom: 15px;
     /* font-family: 'Merriweather', serif; */
 /* font-family: 'Roboto', sans-serif; */
 /* font-family: 'Josefin Sans', sans-serif; */
 }
 
 .card-header {
-    background: #388e3c;
+    background: #15561e;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 16px;
+    font-size: 20px;
+    color: white;
+    text-shadow: 1px 1px 2px #000000;
     font-weight: 900;
+    border-radius: 21px 21px 0px 0px !important;
+    
+    
 }
 
 .card-body {
     color: black;
+    text-shadow: 1px 1px 2px white;
     font-weight: 200;
     background:  #CDE1B0;
     background-image: url(https://res.cloudinary.com/delacue/image/upload/o_42/v1567998993/windyRoad_h2w8jx.png);
@@ -30,4 +40,22 @@ body {
      font-family: 'Merriweather', serif;
 
     
+}
+
+.card-footer {
+    font-family: 'Overpass', sans-serif;
+
+}
+.fa-trash {
+    margin-right: 10px;
+}
+
+.btn-secondary {
+    background-color: #263238;
+    padding: 10px 10px 10px 10px;
+    font-size: 20px;
+    border: solid white 2px;
+    border-radius: 25px;
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom: 20px;
 }

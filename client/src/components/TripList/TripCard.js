@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, CardHeader, CardFooter, CardBody,
+import { Card, CardTitle, Button, CardHeader, CardFooter, CardBody,
   CardText } from 'reactstrap';
 
 const TripCard = (props) => {
@@ -8,17 +8,17 @@ const TripCard = (props) => {
       <Card>
         <CardHeader>Trip Name: {props.tripName}</CardHeader>
         <CardBody>
-          {/* <CardTitle>Overall Safety Rating: ????</CardTitle> */}
+          <CardTitle>Overall Safety Rating: </CardTitle>
           <CardText>Origin: {props.origin}
           
           </CardText>
           <CardText>Destination: {props.destination}
           
           </CardText>
-          
+          <CardText>number of stops: {props.numberOfStops}</CardText>
           <Button>Go to Map</Button>
         </CardBody>
-        <CardFooter>number of stops: {props.numberOfStops}</CardFooter>
+        <CardFooter><i className="fa fa-trash" style={{ fontSize: "30px" }} />Delete Trip </CardFooter>
       </Card>
     </div>
   );
