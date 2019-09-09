@@ -32,6 +32,7 @@ export default class TripList extends React.Component {
     API.removeTrip(id)
       .then(res =>{
         console.log(res.data);
+        this.loadTrips(this.props.user)
       })
       .catch(err => console.log(err));
   }
