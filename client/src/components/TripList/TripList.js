@@ -1,53 +1,47 @@
 import React from 'react';
 import { Table } from 'reactstrap';
-import TripRow from "./index.js";
+import TripCard from "./TripCard.js";
 import API from "../Utility/API.js";
-import GlobalContext from '../../context/';
-
 
 export default class TripList extends React.Component {
-    static contextType = GlobalContext;
 
     state = {
         savedTrips: []
     };
 
-    componentDidMount() {
-        this.loadTrips(this.context.user);
-    }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.user !== this.props.user) {
+          this.loadTrips(this.props.user);
+        }
+      }
 
-    loadTrips = (user) => {
-        console.log(this.context.user)
-        API.getTrips(user.id)
-          .then(
-              res => {
-              console.log(res.data)
-              this.setState({ savedTrips: res.data })})
+      loadTrips = user => {
+        API.getTrips(user)
+          .then(res => {
+            console.log(res.data);
+            this.setState({ savedTrips: res.data });
+          })
           .catch(err => console.log(err));
       };
+    
+      render() {
+     
+        console.log(this.state.savedTrips);
+    
 
-    render() {
-        console.log(this.context.user)
-        console.log(this.state.savedTrips)
-        
+   
         return (
-            <Table responsive>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Saved Trips</th>
-                    </tr>
-                </thead>
+            <div>
                 
                 {this.state.savedTrips.map(savedTrips => (
-                    <TripRow
+                    <TripCard
                         id={savedTrips.id}
                         tripName={savedTrips.tripName}
                         origin={savedTrips.origin}
                         destination={savedTrips.destination}
                     />
                 ))}
-            </Table>
+           </div>
         );
     }
 }

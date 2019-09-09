@@ -1,0 +1,23 @@
+body {
+    background-image: url(https://res.cloudinary.com/delacue/image/upload/v1567998484/squiggleSveSVG_zsajk3.svg);
+    background-size: cover;
+}
+
+.card {
+    border: solid;
+    border-color: #3b3b3b;
+    font-family: 'Overpass', sans-serif;
+}
+
+.card-header {
+    background: #388e3c;
+}
+
+.card-body {
+    color: black;
+    font-weight: 600;
+    background:  #CDE1B0;
+    background-image: url(https://res.cloudinary.com/delacue/image/upload/v1567998993/windyRoad_h2w8jx.png);
+    background-size: cover;
+    font-family: 'Overpass', sans-serif;
+}

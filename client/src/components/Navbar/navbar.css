@@ -773,3 +773,6 @@ body {
     box-sizing: inherit
 }
 
+a {
+    margin-left: 6px;
+  }

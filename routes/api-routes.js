@@ -59,8 +59,11 @@ module.exports = function(app) {
   // ============ Get all trip plans by user items ============
   app.get("/api/gettripplans/:userid", function(req, resExpress) {
     userId = req.params.userid;
+    console.log("condition hit!")
+    console.log(userId)
+    console.log(req.params.userid)
     ormQueries.getTripPlans(userId, function(data) {
-      // console.log(data);
+      console.log(data);
       resExpress.json(data);
     });
   });
