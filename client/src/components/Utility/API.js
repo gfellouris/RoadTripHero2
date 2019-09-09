@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
     // Save trip plans for auser
-    saveTrip: function () {
-        return axios.post("/api/savetripplan")
+    saveTrip: function (trip) {
+        return axios.post("/api/savetripplan", trip)
     },
     // Get all trips for a user
     getTrips: function (user) {

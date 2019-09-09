@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Form from "../components/Forms/Forms.js";
 import TripList from "../components/TripList/TripList.js";
 import { Col, Row, Container } from "../components/Grid/index.js";
 import Header from '../components/Header/Header.js'
@@ -13,35 +12,15 @@ class Planner extends Component {
 
     render() {
         // console.log(this.GlobalContext.user.uid)
-        return  (
+        return (
             <>
-            <Header/>
-            <Navbar/>
-           
-            <Container fluid>
-              <Row >
-              <Col size="md-1" >
-                        
-                    </Col>
-                    <Col size="md-8" >
-                        <Form >
-                        </Form>
-                    </Col>
-                    <Col size="md-3">
-                        <TripList
-                        user={this.context.user} > 
-                        </TripList>
-                    </Col>
-                </Row>
-            </Container>
-            {/* <Container fluid>
-                <Row >
-                    <Col size="md-6">
-                        <TripList> 
-                        </TripList>
-                    </Col>
-                </Row>
-            </Container> */}
+           <Header/>
+                <Navbar />
+                <Container fluid>
+                    <TripList
+                        user={this.context.user} >
+                    </TripList>
+                </Container>
             </>
         )
     }
