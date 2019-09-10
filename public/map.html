@@ -36,38 +36,12 @@
   <script src="assets/js/map.js"></script>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
   <title>Road Trip Hero</title>
-  <style>
-  </style>
-  <style>
-    #billboard {
-      background-image: url(https://res.cloudinary.com/delacue/image/upload/v1567614838/greenSign-_Converted_ja975n.png);
-      margin-top: 0px;
-      background-size: 100% 100%;
-      padding: 8%;
-      background-repeat: no-repeat;
-    }
 
-    img {
-      height: 140px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
   <style>
     body {
-      background-image: url(https://res.cloudinary.com/delacue/image/upload/v1567529037/RTHbackgroundLarge_wofnlp.jpg);
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
-    }
-
-    .videoTag {
-      height: auto;
-      width: 100%;
-      position: fixed;
-      float: left;
-      top: 0;
     }
 
     .btn-success {
@@ -82,27 +56,6 @@
       border-radius: 25px;
       text-shadow: 2px 2px 4px #000000;
       margin-bottom: 15px;
-      /* border-top: 20px; */
-
-    }
-
-    .billboard,
-    #billboard {
-      max-height: 400px;
-      border-radius: 25px;
-    }
-  </style>
-  <style>
-    .tripInput {
-      background-color: #15561e;
-      margin-top: 10px;
-      padding: 20px 20px 10px 20px;
-      border: solid #263238 2px;
-      border-radius: 25px;
-      font-family: 'Overpass', sans-serif;
-      text-align: center;
-      max-width: 500px;
-
     }
 
     h1 {
@@ -125,9 +78,6 @@
       text-shadow: 2px 2px 4px #000000;
     }
 
-    /* .name{
-  margin: 0 auto;
-} */
     .submit {
       background-color: #263238;
       padding: 10px 10px 10px 10px;
@@ -139,66 +89,6 @@
 
     }
 
-    #exampleTrip,
-    #exampleStart,
-    #exampleCity,
-    #exampleState,
-    #exampleZip,
-    #exampleEnd,
-    #exampleEndCity,
-    #exampleEndState,
-    #exampleEndZip {
-      border: solid white 2px;
-      border-radius: 25px;
-
-    }
-
-    #exampleStart {
-      border: solid white 2px;
-      border-radius: 25px;
-    }
-
-    #exampleCity {
-      border: solid white 2px;
-      border-radius: 25px;
-    }
-
-    #exampleState {
-      border: solid white 2px;
-      border-radius: 25px;
-    }
-
-    #exampleZip {
-      border: solid white 2px;
-      border-radius: 25px;
-    }
-
-    #exampleEnd {
-      border: solid white 2px;
-      border-radius: 25px;
-    }
-
-    #exampleEndCity {
-      border: solid white 2px;
-      border-radius: 25px;
-    }
-
-    #exampleEndState {
-      border: solid white 2px;
-      border-radius: 25px;
-    }
-
-    #exampleEndZip {
-      border: solid white 2px;
-      border-radius: 25px;
-    }
-
-    #exampleStops {
-      border: solid white 2px;
-      border-radius: 25px;
-    }
-  </style>
-  <style>
     .jumbotron {
       background-image: url(https://res.cloudinary.com/delacue/image/upload/v1568044549/headerABackgroundLarge_bxquor.jpg);
       background-size: cover;
@@ -974,8 +864,9 @@
       text-align: center;
       border-radius: 25px;
       font-family: 'Overpass', sans-serif;
-      width: 300px;
+      width: 500px;
       margin-bottom: 15px;
+      margin-left: 60px;
       /* margin-right: 50px; */
       /* font-family: 'Merriweather', serif; */
       /* font-family: 'Roboto', sans-serif; */
@@ -1049,20 +940,15 @@
     a {
       color: white !important;
     }
-  </style>
-  <style>
-    .leaflet-container {
-      height: 600px;
-      width: 100%;
-      max-width: 600px;
-      border: solid;
-      border-radius: 25px;
-      border: black;
 
+    .col-md-5 {
+      -ms-flex: 0 0 41.666667%;
+      flex: 1 0 41.666667% !important;
+      /* max-width: 41.666667%; */
     }
 
-    .map {
-      text-align: center !important;
+    footer {
+      display: none;
     }
   </style>
   <meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;Bootstrap&quot;:-1}">
@@ -1122,54 +1008,46 @@
         </div>
       </div>
     </nav>
+
     <div class="container-fluid">
-      <div class="row justify-content-center">
-        <div class="col-md-1"></div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
         <div class="col-md-5">
-            <div class="card">
-                <div class="card-header">Trip Name: </div>
-                <div class="card-body">
-                  <div class="card-title">Overall Safety Rating: </div>
-                  <p class="card-text"> route from <input type="text" id="from" value="300 Atrium Drive, Somerset, NJ" />
-                    to <input type="text" id="to" value="123 White Oak Lane, Old Bridge, NJ" />
-                    <input type="submit" onclick="route()" /><br></p>
-                  <p class="card-text">Destination: </p>
-                  <p class="card-text">Number of stops: </p><button class="btn btn-secondary" type="submit" onclick="route()" >Submit</button>
-                </div>
-                <div class="card-footer"><i class="fa fa-trash" aria-hidden="true" style="font-size: 30px;"></i>Delete
-                  Trip </div>
-              </div>
-          <div class="map">
-              <div id="map" style="width: 600px; height: 500px;"></div>
-            <table>
-              <tr>
-                <td valign="top">
-                 
-                  <div id="side_bar" style="width:200px; height: 600px; overflow: auto"></div>
-    
-                  <div id="zipcodes"></div>
-                </td>
-              </tr>
-            </table>
-            <!-- route from <input type="text" id="from" value="300 Atrium Drive, Somerset, NJ" />
-            to <input type="text" id="to" value="123 White Oak Lane, Old Bridge, NJ" />
-            <input type="submit" onclick="route()" /><br> -->
-            <div id="status"></div>
+          <div id="map" class="map" style="width: 600px; height: 500px;"></div>
+        </div>
         <div class="col-md-5">
-          <div>
-           
+          <div class="card">
+            <div class="card-header">Trip Name: </div>
+            <div class="card-body">
+              <div class="card-title">Overall Safety Rating: </div>
+              <p class="card-text"> route from <input type="text" id="from" value="300 Atrium Drive, Somerset, NJ" />
+              </p>
+              <p class="card-text">Destination: <input type="text" id="to" value="123 White Oak Lane, Old Bridge, NJ" />
+              </p>
+              <p class="card-text">Number of stops: </p><button class="btn btn-secondary" type="submit"
+                onclick="route()">Submit</button>
+            </div>
+            <div class="card-footer"><i class="fa fa-trash" aria-hidden="true" style="font-size: 30px;"></i>Delete Trip
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      
+      <footer>
+        <div class="row" valign="top">
 
-  <script src="/static/js/bundle.js"></script>
-  <script src="/static/js/0.chunk.js"></script>
-  <script src="/static/js/main.chunk.js"></script>
-  <script src="/main.a60665a8710d1f8d927c.hot-update.js"></script>
+          <div id="side_bar" style="width:200px; height: 600px; overflow: auto"></div>
+          <div id="zipcodes"></div>
+        </div>
+        <div id="status"></div>
+      </footer>
+
+
+      <script src="/static/js/bundle.js"></script>
+      <script src="/static/js/0.chunk.js"></script>
+      <script src="/static/js/main.chunk.js"></script>
+      <script src="/main.a60665a8710d1f8d927c.hot-update.js"></script>
 
 </body>
 
 </html>
-
