@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { Card, CardTitle, Button, CardHeader, CardFooter, CardBody,
   CardText } from 'reactstrap';
 
@@ -16,7 +17,7 @@ const TripCard = (props) => {
           
           </CardText>
           <CardText>number of stops: {props.numberOfStops}</CardText>
-          <Button>Go to Map</Button>
+          <Button><Link to="/results">Go To Map</Link></Button>
         </CardBody>
         <CardFooter><i className="fa fa-trash" onClick={() => props.handleDeleteTrip(props.id)} id={props.id} style={{ fontSize: "30px" }} />Delete Trip </CardFooter>
       </Card>

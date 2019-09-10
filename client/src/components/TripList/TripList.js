@@ -1,7 +1,7 @@
 import React from 'react';
 import TripCard from "./TripCard.js";
 import Forms from '../Forms/Forms'
-import { Col, Row, Container } from "../Grid/index";
+import { Col, Row} from "../Grid/index";
 import API from "../Utility/API.js";
 
 export default class TripList extends React.Component {

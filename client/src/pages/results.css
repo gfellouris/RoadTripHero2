@@ -11,5 +11,7 @@
   .map {
     text-align: center !important;
   }
-  
-  
+
+  a {
+      color: white !important;
+  }
