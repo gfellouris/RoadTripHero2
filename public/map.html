@@ -974,7 +974,7 @@
       text-align: center;
       border-radius: 25px;
       font-family: 'Overpass', sans-serif;
-      width: 600px;
+      width: 300px;
       margin-bottom: 15px;
       /* margin-right: 50px; */
       /* font-family: 'Merriweather', serif; */
@@ -1126,40 +1126,38 @@
       <div class="row justify-content-center">
         <div class="col-md-1"></div>
         <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">Trip Name: </div>
+                <div class="card-body">
+                  <div class="card-title">Overall Safety Rating: </div>
+                  <p class="card-text"> route from <input type="text" id="from" value="300 Atrium Drive, Somerset, NJ" />
+                    to <input type="text" id="to" value="123 White Oak Lane, Old Bridge, NJ" />
+                    <input type="submit" onclick="route()" /><br></p>
+                  <p class="card-text">Destination: </p>
+                  <p class="card-text">Number of stops: </p><button class="btn btn-secondary" type="submit" onclick="route()" >Submit</button>
+                </div>
+                <div class="card-footer"><i class="fa fa-trash" aria-hidden="true" style="font-size: 30px;"></i>Delete
+                  Trip </div>
+              </div>
           <div class="map">
               <div id="map" style="width: 600px; height: 500px;"></div>
-            <!-- <table>
+            <table>
               <tr>
                 <td valign="top">
                  
-                </td>
-                <td>
                   <div id="side_bar" style="width:200px; height: 600px; overflow: auto"></div>
-                </td>
-                <td>
+    
                   <div id="zipcodes"></div>
                 </td>
               </tr>
             </table>
-            route from <input type="text" id="from" value="300 Atrium Drive, Somerset, NJ" />
+            <!-- route from <input type="text" id="from" value="300 Atrium Drive, Somerset, NJ" />
             to <input type="text" id="to" value="123 White Oak Lane, Old Bridge, NJ" />
-            <input type="submit" onclick="route()" /><br>
-            <div id="status"></div> -->
+            <input type="submit" onclick="route()" /><br> -->
+            <div id="status"></div>
         <div class="col-md-5">
           <div>
-            <div class="card">
-              <div class="card-header">Trip Name: </div>
-              <div class="card-body">
-                <div class="card-title">Overall Safety Rating: </div>
-                <p class="card-text"> Route from <input type="text" id="from" value="300 Atrium Drive, Somerset, NJ" />
-                  
-                  </p>
-                <p class="card-text">Destination: <input type="text" id="to" value="123 White Oak Lane, Old Bridge, NJ" /></p>
-                <p class="card-text">Number of stops: </p><button class="btn btn-secondary" type="submit" onclick="route()" >Submit</button>
-              </div>
-              <div class="card-footer"><i class="fa fa-trash" aria-hidden="true" style="font-size: 30px;"></i>Delete
-                Trip </div>
-            </div>
+           
           </div>
         </div>
       </div>
