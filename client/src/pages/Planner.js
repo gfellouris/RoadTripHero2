@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Animated} from "react-animated-css";
 import TripList from '../components/TripList/TripList.js';
 import {Container } from '../components/Grid/index.js';
 import AuthUserContext from '../components/Session/context';
@@ -16,11 +17,13 @@ class Planner extends Component {
     // console.log(this.GlobalContext.user.uid)
     return (
       <>
+        <Animated animationIn="bounceInLeft" animationInDelay={1000} animationOut="fadeOut" isVisible={true}>
         <Header />
         <Navbar />
         <Container fluid>
           <TripList user={this.context.user}></TripList>
         </Container>
+        </Animated>
       </>
     );
   }

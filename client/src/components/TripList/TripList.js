@@ -48,10 +48,10 @@ export default class TripList extends React.Component {
         <Col size="md-1" >
 
         </Col>
-        <Col size="md-8" >
+        <Col size="md-6" >
           <Forms savedTrips={this.savedTrips} loadTrips={this.loadTrips} user={this.props.user} />
         </Col>
-        <Col size="md-3">
+        <Col size="md-5">
           {this.state.savedTrips.map(savedTrips => (
             <TripCard
               id={savedTrips.id}
