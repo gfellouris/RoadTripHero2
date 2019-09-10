@@ -16,7 +16,7 @@ const TripCard = (props) => {
           <CardText>Destination: {props.destination}
           
           </CardText>
-          <CardText>number of stops: {props.numberOfStops}</CardText>
+          <CardText>Number of stops: {props.numberOfStops}</CardText>
           <Button><Link to="/results">Go To Map</Link></Button>
         </CardBody>
         <CardFooter><i className="fa fa-trash" onClick={() => props.handleDeleteTrip(props.id)} id={props.id} style={{ fontSize: "30px" }} />Delete Trip </CardFooter>
