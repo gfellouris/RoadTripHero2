@@ -123,8 +123,8 @@ function route() {
       var path = response.routes[0].overview_path;
       var legs = response.routes[0].legs;
 
-      document.getElementById("zipcodes").innerHTML =
-        "<b>zipcodes along route:</b><br>";
+      // document.getElementById("zipcodes").innerHTML =
+      //   "<b>zipcodes along route:</b><br>";
       // Find the Safety Score of the Zip Code and return it
       for (var i = 0; i < path.length; i = i + 20) {
         var latVal = path[i].lat();

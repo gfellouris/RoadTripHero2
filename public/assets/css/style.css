@@ -6,6 +6,31 @@ body,
   height: 100%;
 }
 
+.formFormat {
+  padding: 20px;
+
+}
 #map {
   border: 1px solid black;
+  margin: auto;
+}
+
+.btn {
+  border: 1px solid white;
+}
+#bannerImg {
+  margin: auto;
+  text-align: center;
+}
+.containerMapOuter {
+  margin: 10px;
+  padding: 50px;
+  background-color: #007d32;
+  border-radius: 20px;
+}
+.containerMapInner {
+  padding: 50px;
+  border: solid 10px white;
+  background-color: #007d32;
+  border-radius: 20px;
 }
