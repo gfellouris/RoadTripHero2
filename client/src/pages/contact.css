@@ -1,0 +1,84 @@
+.contactInput{
+    background-color: #15561e;
+    margin-top: 10px;
+    padding: 20px 20px 10px 20px;
+    border: solid #263238 2px;
+    border-radius: 25px;
+    font-family: 'Overpass', sans-serif;
+    text-align: center;
+    max-width: 500px;
+    margin-left: 33%;
+    
+}
+h1{
+    color: white;
+    border: solid white 2px;
+    border-radius: 25px;
+    font-size: 30px;
+    padding: 10px 10px 10px 10px;
+    text-shadow: 2px 2px 4px #000000;
+    font-weight: 800;
+}
+.border{
+    border: solid #263238 2px;
+}
+.title {
+    color: white;
+    font-size: 22px;
+    text-shadow: 2px 2px 4px #000000;
+}
+/* .name{
+    margin: 0 auto;
+} */
+.submit{
+    background-color: #263238;
+    padding: 10px 10px 10px 10px;
+    font-size: 25px;
+    border: solid white 2px;
+    border-radius: 25px;
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom: 20px;
+
+}
+#exampleTrip, #exampleStart, #exampleCity, #exampleState, #exampleZip, #exampleEnd, #exampleEndCity, #exampleEndState, #exampleEndZip{
+    border: solid white 2px;
+    border-radius: 25px;
+    
+}
+#exampleStart{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleCity{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleState{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleZip{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleEnd{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleEndCity{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleEndState{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+#exampleEndZip{
+    border: solid white 2px;
+    border-radius: 25px;
+}
+
+#exampleStops{
+    border: solid white 2px;
+    border-radius: 25px;
+}

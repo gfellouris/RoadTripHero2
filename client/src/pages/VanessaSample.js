@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Navbar from "../components//Navbar/index.js";
+import { Link } from "react-router-dom";
 
 class VanessaSample extends Component {
     render (){
         return(
-            <Navbar></Navbar>
+            <Link to="../../public/publicTest/map.html">Trip Planner</Link>
         )
     }
 }

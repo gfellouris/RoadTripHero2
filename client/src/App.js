@@ -5,7 +5,7 @@ import Global from './context/Global';
 import Landing from './pages/Landing';
 import Planner from './pages/Planner';
 import Results from './pages/Results.js';
-import VanessaSample from './pages/VanessaSample.js';
+import Contact from './pages/Contact.js';
 import './App.css';
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/planner" component={Planner} />
             <Route exact path="/results" component={Results} />
-            <Route exact path="/sampleVLD" component={VanessaSample} />
+            <Route exact path="/contact" component={Contact} />
           </Switch>
         </Router>
       </Global>
