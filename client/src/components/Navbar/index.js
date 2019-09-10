@@ -39,7 +39,7 @@ class Navbar extends Component {
               <i className="far fa-comments" style={{ fontSize: "30px" }} />
             </NavIcon>
             <NavText>
-              <Link to="/">Contact Us</Link>
+              <Link to="/contact">Contact Us</Link>
             </NavText>
           </NavItem>
           <NavItem eventKey="Logout">
