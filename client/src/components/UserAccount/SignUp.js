@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withFirebase } from "../Firebase";
 import GlobalContext from "../../context";
-import Buttons from "../Buttons/Buttons";
+// import Buttons from "../Buttons/Buttons";
 import { Col, Row, Container } from "../Grid/index.js";
 import "./signUp.css";
 import {Animated} from "react-animated-css";

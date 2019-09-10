@@ -11,6 +11,7 @@ body {
     font-family: 'Overpass', sans-serif;
     width: 300px;
     margin-bottom: 15px;
+    /* margin-right: 50px; */
     /* font-family: 'Merriweather', serif; */
 /* font-family: 'Roboto', sans-serif; */
 /* font-family: 'Josefin Sans', sans-serif; */
@@ -48,6 +49,10 @@ body {
 }
 .fa-trash {
     margin-right: 10px;
+}
+
+a {
+    color: white !important;
 }
 
 .btn-secondary {
