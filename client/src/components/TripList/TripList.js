@@ -27,8 +27,6 @@ export default class TripList extends React.Component {
   };
 
   handleDeleteTrip = id =>{
-    
-
     API.removeTrip(id)
       .then(res =>{
         console.log(res.data);
@@ -36,17 +34,12 @@ export default class TripList extends React.Component {
       })
       .catch(err => console.log(err));
   }
-
   render() {
 
     console.log(this.state.savedTrips);
-
-
-
     return (
       <Row >
         <Col size="md-1" >
-
         </Col>
         <Col size="md-6" >
           <Forms savedTrips={this.savedTrips} loadTrips={this.loadTrips} user={this.props.user} />
