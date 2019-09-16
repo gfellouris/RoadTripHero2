@@ -1,12 +1,18 @@
 var connection = require("../db/connection");
 var getLocationInfo = require("../public/assets/js/getLocationInfo.js");
 // db/orm-models.js is the ORM models file which links to the config/orm.js
+const router = require('express').Router();
 var ormQueries = require("../db/orm-models.js");
+router.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
 module.exports = function(app) {
   // ============ Express App TEST ============
   app.get("/api/testserver", function(req, resExpress) {
     resExpress.send("Express server is working - TEST PASSED!");
   });
+
 
   // ============ Database TEST ============
   app.get("/api/testdb", function(req, resExpress) {
